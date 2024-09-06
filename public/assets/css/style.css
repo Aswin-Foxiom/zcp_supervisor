@@ -1,0 +1,5117 @@
+/*------------------------------------------------------------------
+Project: Zen Mart App
+Author: The_Krishna       
+Last change: 14/08/2024 
+Primary use: Zen Mart Mobile App PWA
+-------------------------------------------------------------------*/
+/*----------------Table of contents Start---------------------------
+1.Default CSS
+2.Splashscreen CSS
+3.Onboarding CSS
+4.Let Get Started CSS
+5.Sign Up CSS
+6.Sign In CSS
+7.Otp CSS
+8.Finger Print CSS
+9.Preferred Language CSS
+10.Choose Interest CSS
+11.Delete Account CSS
+12.Deactive Account CSS
+13.Delete Deactive Account CSS
+14.Invite Friend CSS
+15.Contact Us CSS
+16.Feedback CSS
+17.Faq CSS
+18.Homescreen1 CSS
+19.Category1 CSS
+20.Hot Deal Week CSS
+21.Best Seller CSS
+22.Tabbar CSS
+23.Single Clothes CSS
+24.About Us CSS
+25.Data Privacy CSS
+26.Notification Setting CSS
+27.Marketing Preference CSS
+28.Setting CSS
+29.Category2 CSS
+30.Search CSS
+31.Empty Order CSS
+32.Active Order CSS
+33.Track Order CSS
+34.Payment Method CSS
+35.Checkout CSS
+36.Promo Voucher CSS
+37.Choose Method CSS
+38.Payment Processing Modal CSS
+39.Leave Review CSS
+40.Filter CSS
+41.Add New Address2 CSS
+42.Add New Card CSS
+43.Account CSS
+44.Profile Edit CSS
+45.Homescreen2 CSS
+46.Rating Review CSS
+47.Wallet CSS
+48.Cart CSS
+49.Notification CSS
+
+---------Table of contents End-----------------------------------*/
+
+/*------------------------ [Color codes] ------------------------                    
+Background: #FBF2E9, #12151C, #FC342F, #00D061, #FFFFFF, #FFAA01
+Content: #12151C, #FC342F, #FFFFFF, #00D061    
+paragraph p: #464849, #12151C  
+-------------------------------------------------------------------*/
+
+/************************ 1.Default CSS ***************************/
+html {
+	scroll-behavior: smooth;
+	-webkit-text-size-adjust: 100%;
+	width: 100%;
+	height: 100%;
+
+}
+
+*,
+::after,
+::before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+a:focus,
+a {
+	outline: none;
+	text-decoration: none;
+	cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	max-width: 600px;
+	margin: 0 auto;
+	height: 100%;
+}
+
+svg {
+	vertical-align: middle;
+}
+
+input {
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+}
+
+textarea {
+	outline-width: 0;
+	outline-offset: 0;
+	outline: 0;
+}
+
+ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.container {
+	padding: 0 16px;
+}
+
+.pt-4 {
+	padding-top: 4px !important;
+}
+
+.pt-8 {
+	padding-top: 8px;
+}
+
+.pt-16 {
+	padding-top: 16px;
+}
+
+.pt-12 {
+	padding-top: 12px !important;
+}
+
+.pt-24 {
+	padding-top: 24px;
+}
+
+.pt-32 {
+	padding-top: 32px !important;
+}
+
+.mt-4 {
+	margin-top: 4px !important;
+}
+
+.mt-8 {
+	margin-top: 8px;
+}
+
+.mt-12 {
+	margin-top: 12px;
+}
+
+.mt-16 {
+	margin-top: 16px !important;
+}
+
+.mt-24 {
+	margin-top: 24px;
+}
+
+.mt-32 {
+	margin-top: 32px;
+}
+
+.border-radius,
+.sign-up-btn a,
+.icons_main a,
+.sign-in-btn a,
+.input-wrapper {
+	border-radius: 12px;
+}
+
+.color-black,
+.delete-txt {
+	color: var(--2, #12151C) !important;
+}
+
+#about-us-main,
+#data-privacy-main,
+#setting-main,
+#best-seller-main,
+#category1-main,
+#feature-product-main,
+#choose-brand-main,
+#new-arrival,
+#clothes-main,
+#invite-friend-main,
+#contact-us-main,
+#notification-setting-main,
+#rating-review,
+#hot-deal-week,
+#active-order-main,
+#order-track-main,
+#promo-voucher-main,
+#marketing-preference-main,
+#language-main,
+#faq-main {
+	padding-bottom: 20px;
+}
+
+#account-created-main,
+#let-get-started-main,
+#sign-up-main,
+#delete-account-main,
+#delete-account-main,
+#delete-deactivate-main,
+#feedback-main,
+#onboarding,
+#homescreen-main,
+#homescreen2-main,
+#recent-search-screen-main,
+#empty-order-main,
+#leave-review-main {
+	padding-bottom: 80px;
+}
+
+#checkout-main,
+#choose-payment-main,
+#choose-delivery-partner,
+#choose-delivery-main,
+#add-new-address1-main,
+#add-new-address2-main,
+#add-new-card,
+#account-main,
+#profile-edit-main,
+#wishlist-main,
+#wallet-main,
+#verify-main,
+#fingerprint-main,
+#choose-interest-main,
+#search-screen-main,
+#search-not-found-main,
+#filter-main,
+#empty-cart-main,
+#delivery-address-main,
+#select-promo-voucher-main,
+#security-main {
+	padding-bottom: 100px;
+}
+
+.language-main-preferred {
+	padding-bottom: 80px;
+}
+
+.green-bg {
+	background: var(--5, #00D061) !important;
+}
+
+.red-bg {
+	background: #FC342F !important;
+}
+
+.yellow-bg {
+	background: var(--4, #FFAA01) !important;
+}
+
+.color-red {
+	color: #FC342F !important;
+}
+
+.display-flex,
+.sign-up-btn a,
+.sign-in-btn a,
+.footer ul,
+.otp-section,
+.timer-counter-content,
+.finger-print-bottom,
+.opt-border,
+.language-sec-wrap,
+#language-main .form-check-input:checked+label,
+.seller-slide-top-content,
+.home-page-favourite {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.custom-radio-sel-friend,
+.featured-slide-top,
+.home-page-featured-favourite,
+.marquee-img-main,
+.brands-img,
+.home-page-arrival-favourite,
+.category1-img,
+.hot-week-favourite,
+.hot-deal-img,
+.brand-details,
+.bottom-tabbar a,
+.single-slider-btn-prev,
+.single-slider-btn-next {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.single-clothes-favourite,
+.custom-radio-sel-size,
+.col-deatils,
+.product__minus span,
+.product__plus span,
+.shape,
+.notification-option-switch,
+.setting-icon,
+.home3-cate-img,
+.clear-all a,
+.delete-btn-wrap,
+.order-cancle-btn a,
+.yes-cancel-btn a,
+.track1,
+.track-boder,
+.track-boder2,
+.bank-img,
+.partner-logo,
+.redeem-txt a {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.splash-btn,
+.custom-slider-btn,
+.opt-border,
+.scan,
+.home1-tab-img img,
+.clear-all,
+.sk-fading-circle,
+.home3-cate-img {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.footer,
+.main-wrap,
+.fixed,
+.single-clothes-bottom {
+	position: fixed;
+	width: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 16px;
+	max-width: 600px;
+	margin: 0 auto;
+	z-index: 99;
+}
+
+.scan .fingerprint::before,
+.homescreen-third-wrapper:before,
+.shop-now2-sec,
+#splashscreen,
+.onboarding-bg-img1,
+.onboarding-bg-img {
+	background-size: cover;
+	background-repeat: no-repeat
+}
+
+#msform fieldset:not(:first-of-type) {
+	display: none;
+}
+
+::-webkit-scrollbar {
+	display: none;
+}
+
+#homescreen2-main,
+#homescreen-main,
+#category1-main,
+#single-clothes-main,
+#empty-cart-main,
+#checkout-main,
+#delivery-address-main {
+	overflow-y: scroll;
+}
+
+/************************ 2.Splashscreen CSS ***************************/
+#splashscreen {
+	background-image: url(../images/splashscreen/splashscreen-bg-img.png);
+	background-position: top;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.overlay-splashscreen {
+	position: absolute;
+	opacity: 0.85;
+	background: linear-gradient(180deg, rgba(18, 21, 28, 0.00) 0%, #12151C 100%);
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.logo-tile h1,
+.onboarding-content h1,
+.onboarding-content h2,
+.get-started-content h1,
+.sign-up-content h1,
+.contact-txt h1 {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 48px;
+}
+
+.onboarding-content h1,
+.onboarding-content h2,
+.get-started-content h1,
+.sign-up-content h1 {
+	line-height: 40px;
+}
+
+.onboarding-content p,
+.logo-tile p,
+.get-started-content p,
+.footer ul li a,
+.sign-up-content p,
+.footer-chec-txt,
+.block-footer p,
+.forget-btn a,
+.resend-otp,
+.open-email-skip-btn a,
+.delete-txt,
+.friend-name,
+.contact-txt p,
+.homescreen-title p,
+.view-all-txt,
+.order-txt {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.splash-btn {
+	width: fit-content;
+
+	background: var(--6, #FC342F);
+	margin-top: 48px;
+	margin-bottom: 30px;
+}
+
+.splash-btn a {
+	background: var(--6, #FC342F);
+	color: var(--1, #FFF) !important;
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	border-radius: 12px;
+	padding: 12px 44px;
+}
+
+.site-content {
+	width: 100%;
+	height: 100%;
+}
+
+/************************ 3.Onboarding CSS ***************************/
+.background {
+	background: #FBF2E9;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.onboarding-bg-img2 {
+	position: absolute;
+	bottom: 0;
+}
+
+.skip-btn1 a,
+.or-section p,
+.contact-us-no {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.onboarding-main-content {
+	position: relative;
+	padding-top: 20px;
+}
+
+.oval-frame {
+	border: 10px solid white;
+	border-radius: 50%;
+	box-shadow: 0px 0px 32px 0px rgba(18, 21, 28, 0.16);
+	z-index: 0;
+	position: relative;
+}
+
+.onboarding-content {
+	padding: 40px 16px 0 16px;
+}
+
+#onboarding .splash-btn {
+	margin-left: 16px;
+	margin-right: 0;
+	position: fixed;
+	bottom: 0;
+	margin-bottom: 20px;
+}
+
+.custom-slider-btn {
+	bottom: 35px;
+	position: fixed;
+	z-index: 2;
+	padding: 0;
+	list-style: none;
+	height: fit-content;
+	justify-content: end !important;
+	width: fit-content;
+	margin-bottom: 0;
+	right: -25%;
+}
+
+.custom-slider-btn .active {
+	width: 30px !important;
+	border: 2px solid #12151C !important;
+	background: transparent !important;
+}
+
+.custom-slider-dots {
+	width: 12px !important;
+	height: 12px !important;
+	border-radius: 8px !important;
+	background: transparent !important;
+	border: 2px solid rgb(18 21 28 / 24%) !important;
+	margin-left: 8px !important;
+}
+
+#onboarding .carousel-item {
+	transition: none !important;
+}
+
+.Ellipse1,
+.Ellipse2,
+.Ellipse3,
+.Ellipse4 {
+	position: absolute;
+	width: 162px;
+	height: 174px;
+}
+
+.Ellipse1 {
+	top: 0;
+	left: 0;
+	animation: changeColor1 10s linear infinite;
+}
+
+.Ellipse2 {
+	top: 0;
+	right: 0;
+	animation: changeColor1 10s linear infinite;
+}
+
+.Ellipse3 {
+	left: 0;
+	top: 50%;
+	animation: changeColor2 10s linear infinite;
+}
+
+.Ellipse4 {
+	top: 50%;
+	right: 0;
+	animation: changeColor3 10s linear infinite;
+}
+
+@keyframes changeColor1 {
+
+	0%,
+	20% {
+		background-color: #FFAA01;
+		filter: blur(125px);
+	}
+
+	40% {
+		background-color: #00D061;
+		filter: blur(125px);
+	}
+
+	60% {
+		background-color: #FC342F;
+		filter: blur(125px);
+	}
+
+	80%,
+	100% {
+		background-color: #FFAA01;
+		filter: blur(125px);
+	}
+}
+
+@keyframes changeColor2 {
+
+	0%,
+	20% {
+		background-color: #00D061;
+		filter: blur(125px);
+	}
+
+	40% {
+		background-color: #FC342F;
+		filter: blur(125px);
+	}
+
+	60% {
+		background-color: #FFAA01;
+		filter: blur(125px);
+	}
+
+	80%,
+	100% {
+		background-color: #00D061;
+		filter: blur(125px);
+	}
+}
+
+@keyframes changeColor3 {
+
+	0%,
+	20% {
+		background-color: #FC342F;
+		filter: blur(125px);
+	}
+
+	40% {
+		background-color: #FFAA01;
+		filter: blur(125px);
+	}
+
+	60% {
+		background-color: #00D061;
+		filter: blur(125px);
+	}
+
+	80%,
+	100% {
+		background-color: #FC342F;
+		filter: blur(125px);
+	}
+}
+
+.img2 {
+	animation-delay: 2s;
+}
+
+.img3 {
+	animation-delay: 4s;
+}
+
+@keyframes fadeInOut {
+
+	0%,
+	33.33%,
+	100% {
+		opacity: 0;
+	}
+
+	16.66%,
+	50% {
+		opacity: 1;
+	}
+}
+
+.background .img1,
+.background .img2,
+.background .img3 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	transition: opacity 1s ease-in-out;
+	animation: fadeInOut 6s infinite;
+}
+
+.background .img2 {
+	object-fit: contain !important;
+}
+
+.carousel-item.active .img1 {
+	opacity: 1;
+}
+
+.carousel-item.active .img2 {
+	opacity: 1;
+}
+
+.carousel-item.active .img3 {
+	opacity: 1;
+}
+
+.skip-btn1 {
+	padding: 0 16px;
+}
+
+/************************ 4.Let Get Started CSS ***************************/
+.red,
+.yellow,
+.green,
+.red1 {
+	position: absolute;
+	width: 162px;
+	height: 174px;
+}
+
+.red,
+.red1 {
+	animation: changeColor1 10s linear infinite;
+}
+
+.red {
+	right: 0;
+	top: 0;
+}
+
+.red1 {
+	left: 0;
+	top: 0;
+}
+
+.yellow {
+	left: 0;
+	top: 50%;
+	animation: changeColor2 10s linear infinite;
+}
+
+.green {
+	bottom: 0;
+	right: 0;
+	animation: changeColor3 10s linear infinite;
+}
+
+.icons_main a {
+	background: var(--1, #FFF);
+	padding: 20px;
+}
+
+.icons_main {
+	gap: 16px;
+}
+
+.social-media-sec h2,
+.timer-counter-content,
+.category-txt h3 {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 30px;
+}
+
+.sign-up-btn a,
+.sign-in-btn a {
+	width: 100%;
+	background: var(--6, #FC342F);
+	padding: 12px 0;
+	margin: auto;
+	max-width: 600px;
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.sign-in-btn a {
+	background: var(--2, #12151C);
+}
+
+.arrow {
+	padding: 0px 8px;
+}
+
+/************************ 5.Sign Up CSS ***************************/
+.back-btn a {
+	display: block;
+	width: 24px;
+	height: 24px;
+}
+
+.name-txt,
+.custom-lbl-feedback {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 18px;
+}
+
+.custom-lbl-feedback {
+	width: 100%;
+}
+
+input {
+	border: none;
+	outline: none;
+	width: 100%;
+}
+
+.input-wrapper {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	padding: 12px;
+	background: #ffffff;
+	column-gap: 12px;
+	margin-top: 4px;
+}
+
+.input-wrapper input,
+.print-txt p,
+.language-name-wrap p,
+.feedback-email input,
+.custom-select-subject select,
+.custom-textarea .search-text {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.input-wrapper input::placeholder {
+	color: var(--3, #464849);
+}
+
+.search-text::placeholder {
+	color: var(--3, #464849) !important;
+}
+
+#eye,
+#eye1 {
+	color: #464849;
+	display: flex;
+	align-items: center;
+}
+
+.footer-checkbox-input {
+	position: absolute;
+	opacity: 0;
+	width: fit-content;
+}
+
+.footer-checkbox-input+.footer-chec-txt {
+	position: relative;
+	cursor: pointer;
+	padding: 0;
+}
+
+.footer-checkbox-input+.footer-chec-txt:before {
+	content: "";
+	margin-right: 12px;
+	display: inline-block;
+	vertical-align: text-top;
+	width: 22px;
+	height: 22px;
+	border: 2px solid #12151C;
+	border-radius: 8px;
+}
+
+.footer-checkbox-input:checked+.footer-chec-txt:before {
+	background: black;
+	border: none;
+}
+
+.footer-checkbox-input:checked+.footer-chec-txt:after {
+	content: "";
+	position: absolute;
+	left: 6px;
+	top: 12px;
+	background: white;
+	width: 2px;
+	height: 2px;
+	box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
+	transform: rotate(45deg);
+}
+
+.or-section p:before,
+.or-section p:after {
+	background: #ffffff;
+	content: "";
+	display: inline-block;
+	height: 2px;
+	position: relative;
+	vertical-align: middle;
+	width: 50%;
+}
+
+.or-section p:after {
+	left: 8px;
+	margin-right: -50%;
+}
+
+.or-section p:before {
+	right: 8px;
+	margin-left: -50%;
+}
+
+.or-section p {
+	overflow: hidden;
+}
+
+/************************ 6.Sign In CSS ***************************/
+.remember-section {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.onboarding-bg-img1 {
+	background-image: url(../images/splashscreen/left-img-bg.png);
+	background-position: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+.onboarding-bg-img {
+	background-image: url(../images/splashscreen/white-bg-img.png);
+	background-position: right;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+}
+
+/************************ 7.Otp CSS ***************************/
+.otp-section input {
+	width: 48px;
+	height: 60px;
+	text-align: center;
+	padding: 10px;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	border: 0;
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 32px;
+}
+
+.otp-section {
+	column-gap: 11px;
+}
+
+.otp-section input:focus {
+	border-radius: 12px;
+	border: 1px solid var(--5, #00D061);
+	background: var(--1, #FFF);
+	box-shadow: 0px 0px 12px 0px rgba(18, 21, 28, 0.24);
+}
+
+.filled {
+	border-radius: 12px;
+	border: 1px solid var(--2, #12151C) !important;
+	background: var(--1, #FFF);
+}
+
+.otp-timer {
+	display: inline-block;
+	padding: 25px 18px;
+	position: relative;
+	height: 100px;
+	width: 100px;
+}
+
+.otp-timer .border {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background: transparent;
+	border-radius: 50%;
+	border: 2px dashed #12151C !important;
+}
+
+.otp-left {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.opt-border {
+	border: 2px dashed #12151C !important;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+}
+
+.counter-sec {
+	margin-top: 130px;
+}
+
+.fixed1 {
+	padding-bottom: 80px;
+}
+
+.otp-section1 input {
+	width: 75px;
+}
+
+/************************ 8.Finger Print CSS ***************************/
+.scanner_main {
+	padding-top: 90px;
+}
+
+.scan {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background: url(../images/finger-print/print-border.png);
+	width: 220px;
+	height: 220px;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.scan .fingerprint {
+	position: relative;
+	width: 220px;
+	height: 220px;
+	background: url(../images/finger-print/finger-print-img.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.scan .fingerprint::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../images/finger-print/finger-print-img.png);
+	background-repeat: no-repeat;
+	background-size: cover;
+	animation: animate 4s ease-in-out infinite;
+	filter: brightness(0) saturate(100%) invert(54%) sepia(75%) saturate(7079%) hue-rotate(344deg) brightness(102%) contrast(98%);
+}
+
+.scan .fingerprint::after {
+	content: "";
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background: #ffffff;
+	border-radius: 8px;
+	filter: drop-shadow(0 0 20px #00D061) drop-shadow(0 0 60px #00D061);
+	animation: animate_line 4s ease-in-out infinite;
+}
+
+@keyframes animate_line {
+
+	0%,
+	100% {
+		top: 0%;
+	}
+
+	50% {
+		top: 100%;
+	}
+}
+
+@keyframes animate {
+
+	0%,
+	100% {
+		height: 0%;
+	}
+
+	50% {
+		height: 100%;
+	}
+}
+
+.skip-btn a {
+	background: var(--2, #12151C) !important;
+}
+
+.finger-print-bottom {
+	gap: 16px;
+}
+
+.sign-up-btn.skip-btn,
+.sign-up-btn.contine-btn {
+	width: 100%;
+}
+
+/************************ 9.Preferred Language CSS ***************************/
+.language-sec-wrap {
+	gap: 4px;
+}
+
+.language-name-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.language-img {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 8px;
+}
+
+.language-name {
+	width: 100%;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+
+#language-main .form-check-input[type=radio],
+#language-main .form-check-input:checked[type=radio],
+#choose-interest-main .lang-sec input[type="checkbox"] {
+	display: none !important;
+}
+
+#language-main .form-check-input+label {
+	display: block;
+	width: 24px;
+	height: 24px;
+	border: 2px solid #12151C;
+	border-radius: 8px;
+}
+
+#language-main .form-check-input:checked+label {
+	background-color: #00D061;
+	color: white;
+	font-size: 18px;
+	border: 2px solid transparent;
+}
+
+#language-main .form-check-input:checked+label::after {
+	font-family: "Font Awesome 5 Free";
+	content: "\f00c";
+	font-size: 16px;
+	color: white;
+	font-weight: 600;
+}
+
+/************************ 10.Choose Interest CSS ***************************/
+#choose-interest-main .select-lang-sec {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 12px;
+}
+
+#choose-interest-main .custom-radio-sel-lang {
+	padding: 11px 16px;
+	cursor: pointer;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+}
+
+.category-txt p,
+#choose-interest-main .custom-radio-sel-lang,
+.seller-price-txt1,
+.brands-content p {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+#choose-interest-main .lang-sec input[type="checkbox"]:checked+label {
+	border-radius: 12px;
+	background: var(--5, #00D061);
+	color: var(--1, #FFF);
+}
+
+/************************ 11.Delete Account CSS ***************************/
+.header-wrap-home {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 10px 16px;
+	position: relative;
+	z-index: 9;
+	background: white;
+}
+
+.delete-account-top h1,
+.header-name p,
+.deactive-account-sec h1,
+#delete-deactivate-main .checkout-modal-lbl,
+.review-txt p,
+.posted-txt {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.delete-account-top p,
+.deactivate-step p,
+.deactivate-step-list li,
+.delete-content p,
+#delete-deactivate-main .checkout-modal-lbl span {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.deactivate-step-list li {
+	color: var(--3, #464849) !important;
+}
+
+.delete-account-sec {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 0;
+	border-bottom: 2px solid #F5F5F5;
+}
+
+.lang-list,
+.deactivate-content {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 16px;
+}
+
+.delete-account-trapping p,
+.category1-title p {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.delete-select input {
+	display: block;
+	width: 24px;
+	height: 24px;
+	border: 2px solid #12151C;
+	border-radius: 8px;
+	margin-top: 0;
+}
+
+#delete-account-main .form-check-input:checked[type=radio] {
+	margin-right: 5px;
+}
+
+#delete-deactivate-main .form-check-input:checked[type=radio],
+#delete-account-main .form-check-input:checked[type=radio] {
+	outline: 2px solid #00D061;
+	outline-offset: 4px;
+	background: #00D061;
+	border: 0;
+	width: 13px;
+	height: 13px;
+}
+
+.form-check-input:focus {
+	border-color: #12151C;
+	outline: 0;
+	box-shadow: none !important;
+}
+
+.form-check-input:active {
+	filter: none;
+}
+
+.background1 {
+	background: #FBF2E9;
+	height: calc(100% - 46px);
+	width: 100%;
+	position: relative;
+	overflow: hidden;
+}
+
+.delete-account {
+	position: relative;
+}
+
+/************************ 12.Deactive Account CSS ***************************/
+.deactivate-step-list {
+	list-style-type: disc;
+	padding: revert;
+}
+
+/************************ 13.Delete Deactive Account CSS ***************************/
+#delete-deactivate-main .custom-radio {
+	position: relative;
+	margin-bottom: 0;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 16px !important;
+	display: flex;
+}
+
+#delete-deactivate-main .custom-radio input {
+	outline: 2px solid #12151C;
+	outline-offset: 4px;
+	border: 0;
+	width: 13px;
+	height: 13px;
+}
+
+#delete-deactivate-main .checkout-modal-lbl {
+	display: inline-grid !important;
+}
+
+#delete-deactivate-main .checkout-modal-lbl span {
+	color: var(--3, #464849);
+}
+
+.first-sec {
+	padding-right: 20px;
+}
+
+/************************ 14.Invite Friend CSS ***************************/
+.invite-friend-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	border-radius: 40px;
+	background: var(--1, #FFF);
+	padding: 8px 16px 8px 8px;
+}
+
+.friend-invite,
+.account-edit {
+	margin-left: auto;
+}
+
+.invite-img img {
+	border-radius: 50px;
+}
+
+.friend-select input {
+	display: none;
+}
+
+.friend-select input[type="checkbox"]:checked+label {
+	border-radius: 16px;
+	border: 2px solid var(--6, #FC342F);
+	background: var(--6, #FC342F);
+	color: var(--1, #FFF);
+}
+
+.custom-radio-sel-friend {
+	width: 61px;
+	height: 34px;
+	border-radius: 16px;
+	border: 2px solid var(--6, #FC342F);
+	cursor: pointer;
+	color: var(--6, #FC342F);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+.friend-no a {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+}
+
+.friend-no {
+	margin-top: 4px;
+}
+
+/************************ 15.Contact Us CSS ***************************/
+.contact-us-mobile-btn {
+	border-radius: 8px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+
+.contact-us-no {
+	padding-left: 12px;
+}
+
+/************************ 16.Feedback CSS  ***************************/
+.feedback-email input,
+.custom-select-subject select,
+.custom-textarea {
+	border-radius: 12px;
+	background-color: var(--1, #FFF);
+	padding: 14px;
+	width: 100%;
+	border: 0;
+}
+
+.arrow-icon {
+	background: url(../svg/up-arrow.svg) no-repeat;
+	background-position: 96% center;
+	appearance: none;
+}
+
+select:focus-visible {
+	outline: 0;
+}
+
+textarea {
+	resize: none;
+}
+
+.feedback-email input::placeholder,
+.custom-select-subject select::placeholder,
+.custom-textarea::placeholder {
+	color: var(--3, #464849);
+}
+
+/************************ 17.Faq CSS ***************************/
+.nested-accordion {
+	cursor: pointer;
+	position: relative;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 16px;
+}
+
+.review-time p {
+	color: var(--3, #666);
+	font-family: Lato;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: normal;
+}
+
+.nested-accordion h3 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+}
+
+.nested-accordion .comment {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 20px;
+}
+
+.nested-accordion h3.selected {
+	color: #FC342F;
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.nested-accordion h3:before {
+	content: url(../svg/faq-plus.svg);
+	position: absolute;
+	right: 16px;
+	color: #FC342F;
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.faq-txt1:before {
+	content: url(../svg/up-arrow.svg) !important;
+}
+
+.nested-accordion h3.selected:before {
+	content: url(../svg/faq-minus.svg);
+}
+
+.faq-txt1.selected:before {
+	content: url(../svg/down-arrow.svg) !important;
+}
+
+.faq-txt1:before {
+	content: url(../svg/up-arrow.svg) !important;
+}
+
+.nested-accordion.border-bottom-faq {
+	border-bottom: 2px solid #F5F5F5;
+	border-radius: 0;
+}
+
+/************************ 18.Homescreen1 CSS ***************************/
+#homescreen-main .yellow {
+	top: 0%;
+}
+
+#homescreen-main .green {
+	position: absolute;
+	z-index: -1;
+}
+
+#homescreen2-main .red {
+	bottom: -30% !important;
+	top: unset;
+}
+
+.homescreen-title h1,
+.homescreen-category h2,
+.seller-title h2,
+.modal-txt,
+.review-sec h1,
+.filter-category-txt {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+.search-wrap {
+	display: flex;
+	gap: 8px;
+	justify-content: space-between;
+}
+
+.search-btn {
+	background: #FC342F;
+	padding: 12px;
+	border-radius: 12px;
+}
+
+.search-text {
+	background: white;
+	border-radius: 12px;
+	border: 0;
+	color: var(--3, #464849) !important;
+}
+
+.form-control:focus {
+	box-shadow: none !important;
+}
+
+.category-img img {
+	border: 10px solid white;
+	border-radius: 50%;
+	box-shadow: 0px 0px 32px 0px rgba(18, 21, 28, 0.16);
+}
+
+.category-txt h3 {
+	font-weight: 600;
+}
+
+.category-txt p {
+	color: var(--3, #464849);
+}
+
+.homescreen-details {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	column-gap: 16px;
+	width: 100%;
+	padding-right: 16px;
+	padding-left: 16px;
+}
+
+.homescreen-category h2 {
+	padding: 0 16px;
+}
+
+.seller-sec-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.seller-slide-top-content {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	width: 200px;
+	height: 240px;
+	position: relative;
+}
+
+.seller-slide-top-content img {
+	mix-blend-mode: multiply;
+	border-radius: 12px;
+}
+
+.home-page-favourite a {
+	display: flex;
+}
+
+.home-page-favourite {
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
+	background: #F5F5F5;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+.item-bookmark.active {
+	content: url(../svg/fill-heart.svg);
+	height: 20px;
+	width: 20px;
+}
+
+.seller-txt-sec {
+	border-radius: 4px;
+	background: #000;
+	padding: 8px;
+	position: absolute;
+	bottom: 10px;
+	left: 10px;
+}
+
+.seller-name {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 22px;
+}
+
+.seller-bottom-price {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.sale-txt {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.seller-price-txt2,
+.featured-name {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+	text-decoration-line: line-through;
+}
+
+.seller-star {
+	padding-right: 4px;
+}
+
+.seller-sec-content {
+	display: flex;
+	align-items: center;
+	justify-content: flex-start;
+	column-gap: 16px;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.seller-price-txt2 {
+	margin-left: 8px;
+}
+
+.featured-slide-top {
+	width: 100%;
+	height: 140px;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	position: relative;
+}
+
+.home-page-featured-favourite {
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
+	background: #F5F5F5;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+}
+
+.featured-name {
+	text-decoration-line: none;
+	overflow: hidden;
+	width: 140px;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.homescreen1-featured-bottom,
+.brands-bottom {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	column-gap: 16px;
+	width: 100%;
+	padding-right: 16px;
+	padding-left: 16px;
+}
+
+.featured-slide-top img {
+	mix-blend-mode: multiply;
+	border-radius: 12px;
+}
+
+.home-page-featured-favourite a {
+	display: flex;
+}
+
+.shopping-bg-img {
+	width: 100%;
+}
+
+.logos {
+	overflow: hidden;
+	white-space: nowrap;
+	position: relative;
+	display: flex;
+}
+
+.marquee-img-main p {
+	margin-left: 20px;
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.marquee__content {
+	display: flex;
+	justify-content: space-around;
+	min-width: 100%;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.marquee-img-main {
+	gap: 20px;
+}
+
+.marquue-flower {
+	width: 20px;
+}
+
+.logos2 {
+	background: var(--11, #00D061);
+	transform: rotate(-8deg);
+	overflow: hidden;
+	width: 105%;
+	left: -8px;
+}
+
+.logos1 {
+	background: var(--10, #F97316);
+	transform: rotate(8deg);
+	width: 105%;
+	left: -8px;
+	top: -45px;
+}
+
+.logos-slide {
+	animation: 70s slide infinite linear;
+}
+
+.logos-slide2 {
+	animation: 70s slide2 infinite linear;
+}
+
+@keyframes slide {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(-100%);
+	}
+}
+
+@keyframes slide2 {
+	0% {
+		transform: translateX(-100%);
+	}
+
+	100% {
+		transform: translateX(0%);
+	}
+}
+
+.homescreen-third-wrapper {
+	border-radius: 12px;
+	background: var(--2, #12151C);
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.homescreen-third-wrapper:before {
+	content: "";
+	background-image: url(../images/homescreen1/offer1.png);
+	position: absolute;
+	background-position: center;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 0;
+	mix-blend-mode: soft-light;
+}
+
+.homescreen-third-wrapper-content {
+	display: flex;
+	justify-content: space-between;
+	padding: 16px 16px 0px 16px;
+	position: relative;
+}
+
+.special-offer1 h2 {
+	color: var(--4, #FFAA01);
+	font-family: "IBM Plex Sans";
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 32px;
+}
+
+.special-offer1 h3 {
+	color: var(--1, #FFF);
+	font-family: "IBM Plex Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 30px;
+}
+
+.special-offer1 {
+	padding-bottom: 16px;
+}
+
+.homescreen1-offer-img {
+	position: absolute;
+	right: 0;
+	bottom: 0px;
+}
+
+.special-offer1 p {
+	color: var(--1, #FFF);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.home1-shop-now-btn a,
+.shop-now-btn a {
+	border-radius: 4px;
+	background: var(--6, #FC342F);
+	padding: 6px 12px;
+	width: fit-content;
+}
+
+.home1-shop-now-btn a,
+.shop-now-btn a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.brands-img {
+	border-radius: 12px;
+	background: #FFFFFF;
+	padding: 12px;
+}
+
+.shop-now2-sec {
+	background-image: url(../images/homescreen1/shop-now1.png);
+	max-width: 100%;
+	position: relative;
+	padding: 32px 0;
+}
+
+.homescreen-seventh-wrapper h3 {
+	color: var(--1, #FFF);
+	font-family: "IBM Plex Sans";
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 36px;
+}
+
+.homescreen-seventh-wrapper p {
+	color: var(--1, #FFF);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.slide-shop-now2 .carousel-indicators {
+	margin: 0;
+	right: 16px !important;
+	bottom: 44px !important;
+	justify-content: end !important;
+	z-index: 1 !important;
+}
+
+.show-now2-custom-btn {
+	outline-offset: 2px !important;
+	width: 8px !important;
+	height: 8px !important;
+	border-radius: 13px;
+	border: 2px solid #FFF ! IMPORTANT;
+	background: transparent !important;
+	opacity: 1 !important;
+}
+
+.show-now2-custom-btn.active {
+	width: 24px !important;
+	background: white !important;
+}
+
+.shopping-img {
+	position: relative;
+}
+
+.waves-img {
+	position: absolute;
+	top: 0px;
+	left: 0;
+	right: 0;
+	z-index: 1;
+	width: 100%;
+}
+
+.tab-home1-txt2 {
+	color: var(--6, #FC342F);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.tab-home1-txt3 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.custom-home1-tab-btn {
+	padding: 5px 10px;
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+	border-radius: 12px !important;
+	border: 2px solid var(--2, #12151C) !important;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.30) 100%) !important;
+	backdrop-filter: blur(2px);
+}
+
+.custom-home1-tab-btn.active {
+	border: 2px solid transparent;
+	background: #000 !important;
+	color: white;
+}
+
+.custom-home1-tab-btn:hover {
+	color: #000 !important;
+}
+
+.custom-home1-tab-btn.active:hover {
+	color: white !important;
+}
+
+#homepage1-tab {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
+	flex-wrap: nowrap;
+}
+
+.home-page-arrival-favourite {
+	width: 28px;
+	height: 28px;
+	background: white;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.home-page-arrival-favourite a {
+	display: flex;
+	background: white;
+	border-radius: 50%;
+	align-items: center;
+	justify-content: center;
+}
+
+.homepage1-tab-details-wrapper {
+	display: flex;
+	gap: 16px;
+}
+
+.home1-tab-details-full {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 100%;
+}
+
+.tab-home1-txt1 {
+	overflow: hidden;
+	color: var(--2, #12151C);
+	text-overflow: ellipsis;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3;
+}
+
+.home1-tab-img img {
+	border-radius: 12px;
+	mix-blend-mode: multiply;
+	display: flex;
+}
+
+.home1-tab-img {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.rating-homescreen1 {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	justify-content: space-between;
+}
+
+.homepage-overlay {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	background: linear-gradient(180deg, rgba(18, 21, 28, 0.00) 23.86%, #12151C 100%);
+}
+
+.img-txt {
+	position: absolute;
+	bottom: 50px;
+	left: 0;
+	right: 0;
+	margin: 0 auto;
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 20px;
+	font-style: italic;
+	font-weight: 500;
+	line-height: 30px;
+	width: 100%;
+	padding: 0 16px;
+}
+
+/************************ 19.Category1 CSS ***************************/
+.category1-title h3,
+.moreless-button,
+.partner-title h3,
+.cart-title.code-txt h3 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.category1-title p {
+	margin-top: 2px;
+}
+
+.category1-img {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+}
+
+.category1-img img {
+	mix-blend-mode: darken;
+	border-radius: 12px;
+}
+
+.category1-wrap {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
+}
+
+/************************ 20.Hot Deal Week CSS ***************************/
+.hot-top-content {
+	position: relative;
+}
+
+.hot-week-favourite {
+	background: #F5F5F5;
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+	position: absolute;
+	top: 4px;
+	right: 4px;
+}
+
+.hot-week-favourite a {
+	display: flex;
+}
+
+.hot-bottom-content p {
+	overflow: hidden;
+	color: var(--2, #12151C);
+	text-overflow: ellipsis;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.hot-deal-img {
+	border-radius: 8px;
+	background: var(--1, #FFF);
+}
+
+.hot-rate-price span {
+	color: var(--6, #FC342F);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.hot-star-rate span:last-child {
+	color: var(--2, #12151C);
+	text-align: right;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.hot-rating-sec {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.hot-deal-week-wrap {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px;
+}
+
+.hot-deal-img img {
+	border-radius: 8px;
+	mix-blend-mode: darken;
+}
+
+/************************ 21.Best Seller CSS ***************************/
+#best-seller-main .seller-slide-top-content {
+	width: auto;
+	height: auto;
+}
+
+#best-seller-main .seller-name {
+	display: -webkit-box;
+	width: 163px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.brand-details {
+	background: #ffffff;
+	border-radius: 8px;
+	padding: 12px;
+}
+
+.brands-content p {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.choose-brand-wrap {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	gap: 16px
+}
+
+/************************ 22.Tabbar CSS ***************************/
+nav {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 56px;
+	justify-content: space-between;
+	column-gap: 24px;
+	border-radius: 28px;
+	background: linear-gradient(92deg, rgba(18, 21, 28, 0.64) 0%, rgba(18, 21, 28, 0.40) 100%);
+	box-shadow: 0px 24px 12px -20px rgba(18, 21, 28, 0.16);
+	backdrop-filter: blur(4px);
+}
+
+.bottom-tabbar a {
+	color: inherit;
+	text-decoration: none;
+	position: relative;
+	width: 100%;
+	height: 40px;
+	border-radius: 20px;
+}
+
+.bottom-tabbar a svg {
+	width: 18px;
+	height: 18px;
+	transition: margin 0.2s ease-out;
+}
+
+.bottom-tabbar a span {
+	opacity: 0;
+	display: none;
+}
+
+.bottom-tabbar a.active {
+	background: white;
+	padding-left: 12px;
+	padding-right: 22px;
+}
+
+.bottom-tabbar a.active span {
+	visibility: visible;
+	opacity: 1;
+	transition: all 0.2s ease-out;
+	margin-left: 12px;
+	display: block;
+	color: var(--6, #FC342F);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 18px;
+}
+
+.bottom-tabbar a.active img {
+	filter: brightness(0) saturate(100%) invert(37%) sepia(71%) saturate(7494%) hue-rotate(347deg) brightness(113%) contrast(104%);
+}
+
+.bottom-tabbar a:first-child {
+	margin-left: 12px;
+}
+
+.bottom-tabbar a:last-child {
+	margin-right: 12px;
+}
+
+.bottom-tabbar a.active svg {
+	margin-right: 0;
+}
+
+.bottom-tabbar-full {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	left: 0;
+	right: 0;
+	max-width: 600px;
+	margin: auto;
+	padding: 16px;
+	z-index: 99;
+}
+
+/************************ 23.Single Clothes CSS ***************************/
+.white-arrow img {
+	filter: brightness(0) saturate(100%) invert(99%) sepia(6%) saturate(1898%) hue-rotate(170deg) brightness(115%) contrast(100%);
+}
+
+.single-slider-btn-prev,
+.single-slider-btn-next {
+	width: 32px;
+	height: 56px;
+	border-radius: 0px 12px 12px 0px;
+	background: var(--2, #12151C);
+	opacity: 1;
+	top: 50%;
+	transform: translate(0px, -50%);
+}
+
+.single-slider-btn-prev {
+	left: -3%;
+}
+
+.single-slider-btn-next {
+	right: -3%;
+}
+
+.single-clothes-slide-img img {
+	mix-blend-mode: darken;
+	max-width: 100%;
+}
+
+.single-clothes-slide-img {
+	border-radius: 24px;
+	background: var(--1, #FFF);
+	text-align: center;
+}
+
+.single-clothes-favourite {
+	width: 32px;
+	height: 32px;
+	border-radius: 32px;
+	position: absolute;
+	top: 12px;
+	right: 12px;
+	background: var(--7, #F5F5F5);
+}
+
+.single-clothes-sold {
+	border-radius: 8px;
+	background: var(--7, #F5F5F5);
+	padding: 3px 8px;
+	width: fit-content;
+}
+
+.single-clothes-sold p {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.single-clothes-sold {
+	border-radius: 8px;
+	background: var(--7, #F5F5F5);
+	padding: 3px 8px;
+	width: fit-content;
+	position: absolute;
+	top: 12px;
+	left: 12px;
+}
+
+.single-clothes-favourite a {
+	display: flex;
+}
+
+.single-clothes-details h1 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 30px;
+}
+
+.des-txt2 {
+	display: inline;
+}
+
+.des-txt2,
+.privacy-first-content p,
+.privacy-content p,
+.manage-data-title p,
+.marketing-content p,
+.setting-lanuage,
+.checkout-no a,
+.cart-title p {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.moretext {
+	display: none;
+}
+
+.overview-txt h2 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.view-all-txt {
+	font-weight: 600;
+}
+
+.review-first-sec {
+	width: auto;
+	height: auto;
+	padding: 14px 16px;
+	border-radius: 12px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.30) 100%);
+	backdrop-filter: blur(2px);
+}
+
+.rev1-txt {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 32px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 32px;
+}
+
+.rev2-txt,
+.seller-price-txt3 {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.review-star-sec ul {
+	display: flex;
+}
+
+.additional-info-content {
+	display: flex;
+	width: 100%;
+}
+
+.additional-info-content div:first-child,
+.additional-info-content div:last-child {
+	width: 50%;
+}
+
+.additional-info-content div:last-child:before {
+	content: ":";
+	position: absolute;
+	left: -12px;
+	color: #464849;
+}
+
+.additional-info-content div:last-child {
+	position: relative;
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.additional-info-content div:first-child {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.clothes-size-sec,
+.cloths-color-sec {
+	display: flex;
+	gap: 11px;
+	padding-left: 16px;
+	padding-right: 16px;
+	width: 100%;
+}
+
+.clothes-size input {
+	display: none;
+}
+
+.custom-radio-sel-size {
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	border-radius: 20px;
+	border: 2px solid var(--3, #464849);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.30) 100%);
+	backdrop-filter: blur(2px);
+}
+
+.custom-radio-sel-size,
+.partner-title p {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.clothes-size input[type="radio"]:checked+label {
+	border-radius: 20px;
+	background: var(--2, #12151C);
+	border: 2px solid transparent;
+	color: var(--1, #FFF);
+}
+
+.color-wrap label {
+	border-radius: 20px;
+	position: relative;
+	border: 1px solid var(--7, #F5F5F5);
+}
+
+.color-wrap input[type="radio"] {
+	appearance: none;
+}
+
+.col-deatils {
+	height: 40px;
+	width: 40px;
+	position: relative;
+}
+
+.color-wrap input:after {
+	content: "";
+	position: absolute;
+	width: 20px;
+	height: 20px;
+	background-image: url(../svg/right-tick.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 0;
+}
+
+.color-wrap input[type="radio"]:checked:after {
+	opacity: 1;
+}
+
+.color1 {
+	background: var(--2, #12151C);
+}
+
+.color2 {
+	background: var(--1, #FFF);
+}
+
+.color3 {
+	background: #FF0000;
+}
+
+.color4 {
+	background: #FF005C;
+}
+
+.color5 {
+	background: #6E39B3;
+}
+
+.color6 {
+	background: #4700A4;
+}
+
+.color7 {
+	background: #0031FF;
+}
+
+.color-wrap p {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 14px;
+	margin-top: 4px;
+}
+
+.color-wrap {
+	width: 40px;
+}
+
+.you-may-like-sec-content {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	gap: 16px;
+	padding-left: 16px;
+	padding-right: 16px;
+}
+
+.single-increment {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.product-incre {
+	display: flex;
+	column-gap: 4px;
+}
+
+.product__minus span,
+.product__plus span {
+	width: 24px;
+	height: 24px;
+	border-radius: 4px;
+	background: var(--2, #12151C);
+}
+
+.product__input {
+	width: 40px;
+	height: 24px;
+	background: white;
+	text-align: center;
+	border-radius: 4px;
+	border: 1px solid var(--2, #12151C);
+}
+
+.price-sec1,
+.history-title p {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.price-sec2 {
+	color: var(--5, #00D061);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.single-clothes-bottom {
+	background: var(--1, #FFF);
+	box-shadow: 0px -4px 4px 0px rgba(18, 21, 28, 0.04);
+	padding: 16px;
+}
+
+#single-clothes-main {
+	padding-bottom: 140px;
+}
+
+.progress-row {
+	display: flex;
+	align-items: center;
+}
+
+.progress-bar {
+	flex-grow: 1;
+	height: 6px;
+	overflow: hidden;
+	margin-right: 10px;
+	border-radius: 12px;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.30) 100%);
+	backdrop-filter: blur(2px);
+}
+
+.progress-bar div {
+	height: 100%;
+	background-color: #333;
+	width: 0;
+	transition: width 0.5s;
+	border-radius: 12px;
+}
+
+.percentage {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 10px;
+	width: 30px;
+	text-align: right;
+}
+
+.review-progress {
+	display: flex;
+	gap: 16px;
+	width: 100%;
+}
+
+.rating {
+	width: 80%;
+}
+
+.review-first-sec-wrap {
+	width: 20%;
+}
+
+.review-wrap {
+	display: flex;
+	align-items: center;
+	column-gap: 8px;
+	width: 100%;
+	height: 14px;
+}
+
+.progress-content {
+	width: 80%;
+}
+
+.review-star-content {
+	width: 20%;
+	text-align: end;
+}
+
+/************************ 24.About Us CSS ***************************/
+.about-us-content-top h2 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.about-content {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 16px;
+}
+
+.about-us-icon-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: start;
+	gap: 8px;
+}
+
+.shape {
+	width: 74px;
+	height: 74px;
+	border-radius: 37px;
+	cursor: pointer;
+}
+
+.youtube-bg {
+	background: rgb(255 0 0 / 7%);
+}
+
+.twitter-bg {
+	background: rgb(29 161 242 / 7%);
+}
+
+.instragram-bg {
+	background: linear-gradient(225deg, rgb(110 62 255 / 7%) 0%, rgb(224 49 77 / 7%) 47.92%, rgb(254 215 84 / 7%) 100%);
+}
+
+.facebook-bg {
+	background: rgb(59 89 153 / 7%);
+}
+
+.about-social-txt {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.about-content.about-content1 {
+	padding: 12px;
+}
+
+/************************ 25.Data Privacy CSS ***************************/
+.privacy-content h3,
+.manage-data-title h3 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.data-privacy {
+	display: flex;
+	justify-content: space-between;
+}
+
+.delete-select {
+	display: flex;
+	align-items: center;
+}
+
+#data-privacy-main .form-check-input:checked[type=radio] {
+	outline: 2px solid #00D061;
+	outline-offset: 4px;
+	background: #00D061;
+	border: 0;
+	width: 11px;
+	height: 11px;
+	margin-right: 5px;
+}
+
+.delete-account-bottom input {
+	width: 20px;
+	height: 20px;
+	outline: 2px solid #12151C;
+	outline: 0;
+	margin: 0;
+	background: transparent;
+}
+
+/************************ 26.Notification Setting CSS ***************************/
+.notification-option-wrap {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 16px;
+}
+
+.notification-option-wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 16px 0;
+	border-bottom: 1px solid #F5F5F5;
+}
+
+.notification-option-switch .switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+}
+
+.switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.notification-option-switch .slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 4px;
+	right: 0;
+	bottom: 0;
+	border: 1px solid rgb(102 102 102 / 20%);
+	border-radius: 40px;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+}
+
+.notification-option-switch input:checked+.slider {
+	background: #00D061;
+	border: 1px solid transparent;
+}
+
+.notification-option-switch .slider:before {
+	position: absolute;
+	content: "";
+	height: 18px;
+	width: 18px;
+	background: #fff;
+	border-radius: 22px;
+	left: 0px;
+	bottom: 0px;
+	-webkit-transition: 0.4s;
+	transition: 0.4s;
+	border-radius: 22px;
+	border: 0.5px solid #F0F0F0;
+	box-shadow: 0px 3px 1px 0px rgba(0, 0, 0, 0.05), 0px 1px 1px 0px rgba(0, 0, 0, 0.08), 0px 3px 8px 0px rgba(0, 0, 0, 0.08);
+}
+
+.notification-option-switch input:checked+.slider:before {
+	transform: translateX(16px);
+}
+
+.notification-option-name p {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+/************************ 27.Marketing Preference CSS ***************************/
+.marketing-content h2 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.send-txt {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.email-txt p {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.border-bottom1 {
+	border-bottom: 1px solid #F5F5F5;
+}
+
+/************************ 28.Setting CSS ***************************/
+.send-money-contact-tab {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+	padding: 8px 12px 8px 8px;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+}
+
+.setting-icon {
+	width: 48px;
+	height: 48px;
+	background: rgb(0 208 97 / 8%);
+	border-radius: 8px;
+}
+
+.contact-star {
+	margin-left: auto;
+}
+
+.setting-title h3 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.setting-lanuage {
+	display: inline-flex;
+	margin-right: 16px;
+}
+
+.red-bg-opacity {
+	background: rgb(252 52 47 / 8%);
+}
+
+/************************ 29.Category2 CSS ***************************/
+.category2-wrap {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 16px;
+}
+
+.home3-third-wrapper {
+	padding: 5px 5px 8px 5px;
+	border-radius: 37px 37px 4px 4px;
+	background: #FFFFFF;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.home3-cate-img {
+	width: 64px;
+	height: 64px;
+	border-radius: 64px;
+	border: 2px solid var(--7, #F5F5F5);
+	background: var(--1, #FFF);
+}
+
+.home3-third-wrapper p {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 15px;
+}
+
+/************************ 30.Search CSS ***************************/
+.white-icon {
+	filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(16deg) brightness(110%) contrast(101%);
+}
+
+.black-icon {
+	filter: brightness(0) saturate(100%);
+}
+
+.search-iconn {
+	border-radius: 8px;
+	background: #FFFFFF;
+	border: none;
+	padding: 14px 0 14px 16px !important;
+}
+
+.recent-history-search {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.white-border {
+	border-bottom: 2px solid white;
+	border-radius: 1px;
+}
+
+.clear-all {
+	border-radius: 12px;
+	background: var(--6, #FC342F);
+	box-shadow: 0px 24px 12px -20px rgba(252, 52, 47, 0.80);
+	position: fixed;
+	width: 164px;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	margin-bottom: 16px;
+}
+
+.clear-all a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	width: 164px;
+	height: 48px;
+}
+
+#search-not-found-main .search-text {
+	color: var(--2, #12151C) !important;
+}
+
+#search-not-found-main .search-text::placeholder {
+	color: var(--2, #12151C) !important;
+}
+
+.cancel-icon a {
+	display: flex;
+}
+
+/************************ 31.Empty Order CSS ***************************/
+#empty-order-tab {
+	display: inline-flex;
+	flex-wrap: nowrap;
+	gap: 12px;
+	width: 100%;
+}
+
+#empty-order-tab li {
+	width: 33.33%;
+}
+
+.empty-order-content-tab-btn {
+	width: 100%;
+	overflow: hidden;
+	text-wrap: nowrap;
+	color: var(--3, #464849);
+	text-align: center;
+	text-overflow: ellipsis;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+	border-radius: 12px !important;
+	border: 2px solid var(--2, #12151C) !important;
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.40) 0%, rgba(255, 255, 255, 0.30) 100%);
+	backdrop-filter: blur(2px);
+	padding: 6px 0;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+}
+
+.empty-order-content-tab-btn.active {
+	background: var(--5, #00D061) !important;
+	border: 2px solid transparent !important;
+}
+
+.empty-order-content-tab-btn:hover {
+	color: var(--3, #464849);
+}
+
+/************************ 32.Active Order CSS ***************************/
+.active-order-content {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	width: 100%;
+	border-bottom: 2px solid white;
+	padding-bottom: 16px;
+}
+
+.order-second-content-wrap {
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+	column-gap: 8px;
+}
+
+.delete-btn {
+	display: flex;
+	align-items: center;
+	justify-content: end;
+}
+
+.delete-btn-wrap {
+	width: 36px;
+	height: 36px;
+	border-radius: 36px;
+	background: var(--1, #FFF);
+}
+
+.active-img {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.active-second-title p {
+	overflow: hidden;
+	color: var(--2, #12151C);
+	text-overflow: ellipsis;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 2;
+}
+
+.order-size-wrap {
+	display: flex;
+	gap: 16px;
+}
+
+.order-third-content-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.track-order-btn a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.track-order-btn {
+	border-radius: 4px;
+	background: var(--2, #12151C);
+	padding: 6px 8px;
+	display: flex;
+}
+
+.size-txt p {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+.third-price p {
+	color: var(--6, #FC342F);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.active-img img {
+	mix-blend-mode: multiply;
+	border-radius: 12px;
+}
+
+.order-cancle-btn a {
+	border-radius: 50%;
+	background: var(--6, #FC342F);
+	height: 64px;
+	width: 64px;
+}
+
+.order-cancle-btn {
+	display: flex;
+	justify-content: center;
+}
+
+.modal-cancel-bottom-bottom h2 {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+.cancel-txt,
+.cart-title h3,
+.payment-title h3 {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.refund-txt,
+.review-sec p {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.refund-txt span {
+	color: var(--6, #FC342F);
+}
+
+.yes-cancel-btn a {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	padding: 12px 0;
+	border-radius: 12px;
+	background: var(--4, #FFAA01);
+	width: 100%;
+}
+
+.yes-cancel-btn.no-cancel-btn a {
+	background: var(--2, #12151C);
+}
+
+#order-cancel-modal,
+#order-confirmed-modal,
+#payment-processing-modal,
+#order-failed-modal,
+#review-posted-modal,
+#logout-modal,
+#cart-product-modal,
+#order-arrived-modal {
+	background: linear-gradient(180deg, rgba(18, 21, 28, 0.56)0%, rgba(18, 21, 28, 0.24)100%);
+	backdrop-filter: blur(4px);
+}
+
+#order-cancel-modal .modal-body,
+#order-confirmed-modal .modal-body,
+#payment-processing-modal .modal-body,
+#order-failed-modal .modal-body,
+#review-posted-modal .modal-body,
+#logout-modal .modal-body,
+#cart-product-modal .modal-body,
+#order-arrived-modal .modal-body {
+	padding: 32px 16px;
+	border-radius: 24px;
+	background: var(--10, #FBF2E9);
+}
+
+#order-cancel-modal .modal-content,
+#order-confirmed-modal .modal-content,
+#payment-processing-modal .modal-content,
+#order-failed-modal .modal-content,
+#review-posted-modal .modal-content,
+#logout-modal .modal-content,
+#cart-product-modal .modal-content,
+#order-arrived-modal .modal-content {
+	border-radius: 24px;
+	background: var(--10, #FBF2E9);
+	border: 0;
+}
+
+#order-cancel-modal .modal-dialog,
+#order-confirmed-modal .modal-dialog,
+#payment-processing-modal .modal-dialog,
+#order-failed-modal .modal-dialog,
+#review-posted-modal .modal-dialog,
+#logout-modal .modal-dialog,
+#cart-product-modal .modal-dialog,
+#order-arrived-modal .modal-dialog {
+	margin: auto;
+	padding: 16px;
+}
+
+/************************ 33.Track Order CSS ***************************/
+.track-order2-full {
+	display: flex;
+	justify-content: center;
+	column-gap: 50px;
+}
+
+.track1,
+.track-boder,
+.track-boder2 {
+	margin-top: 12px;
+}
+
+.track1,
+.track-boder,
+.track-boder2 {
+	position: relative;
+}
+
+.track1:before {
+	content: "";
+	position: absolute;
+	height: 5px;
+	width: 56px;
+	left: 88%;
+	border-bottom: 2px dashed;
+}
+
+.track-boder:before {
+	content: "";
+	position: absolute;
+	height: 5px;
+	width: 30px;
+	left: 80%;
+	border-bottom: 2px dashed;
+}
+
+.track-boder2:before {
+	content: "";
+	position: absolute;
+	height: 5px;
+	width: 56px;
+	left: 90%;
+	border-bottom: 2px dashed #C4C4C4;
+}
+
+.track-boder2:after {
+	content: "";
+	position: absolute;
+	height: 5px;
+	width: 30px;
+	right: 84%;
+	border-bottom: 2px dashed #C4C4C4;
+}
+
+.track-order2-wrapper:last-child .track1:before {
+	display: none;
+}
+
+.track-order-title span {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.order-status-details {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+
+.track-order-title span:first-child {
+	margin-right: 12px;
+}
+
+.track-order-title {
+	display: flex;
+	align-items: center;
+	border-bottom: 2px solid #F5F5F5;
+	padding-bottom: 16px;
+}
+
+.order-status-sec {
+	display: flex;
+	align-items: center;
+}
+
+.order1 {
+	position: relative;
+}
+
+.order1::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	top: 50%;
+	left: 50%;
+	border-left: 2px dashed black;
+	height: 40px;
+	margin-top: 14px;
+}
+
+.order2 {
+	margin-left: 12px;
+}
+
+.order-txt1 {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.order-txt2 {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 14px;
+	margin-top: 4px;
+}
+
+.order3 {
+	margin-left: auto;
+}
+
+.order-txt3 {
+	color: var(--3, #464849);
+	text-align: right;
+	font-family: "IBM Plex Sans";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 14px;
+}
+
+/************************ 34.Payment Method CSS ***************************/
+.transfer-first {
+	display: flex;
+	align-items: center;
+	column-gap: 16px;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+
+.bank-img {
+	border-radius: 4px;
+	border: 2px solid var(--7, #F5F5F5);
+	width: 74px;
+	height: 48px;
+}
+
+.bank-active-sec {
+	margin-left: auto;
+}
+
+.bank-details h2 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.bank-details p {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+	margin-top: 4px;
+}
+
+.pay-txt1 {
+	color: var(--5, #00D061);
+	text-align: right;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.not-connect {
+	color: var(--4, #FF484D);
+}
+
+/************************ 35.Checkout CSS ***************************/
+.first-order-sec,
+.second-order-sec {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.cart-add-btn,
+.checkout-cancel,
+.partner-price {
+	margin-left: auto;
+}
+
+.second-order-sec,
+.delivery-address-content {
+	border-bottom: 2px solid #F5F5F5;
+	padding-bottom: 12px;
+	border-radius: 1px;
+}
+
+.checkout-second,
+.checkout-second1,
+.first-order-sec {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+
+.partner-logo {
+	width: 64px;
+	height: 64px;
+	border-radius: 50px;
+	border: 2px solid var(--7, #F5F5F5);
+}
+
+.partner-bottom-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.green-border {
+	border: 2px solid var(--5, #00D061);
+}
+
+.checkout-cancel img {
+	filter: brightness(0) saturate(100%) invert(31%) sepia(39%) saturate(5847%) hue-rotate(346deg) brightness(113%) contrast(98%);
+}
+
+.checkout-review {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.checkout-review span:first-child {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 30px;
+}
+
+.checkout-review span:last-child {
+	color: var(--2, #12151C);
+	text-align: right;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 30px;
+}
+
+.checkout-review.border-checkout {
+	border-bottom: 2px solid #F5F5F5;
+	padding: 12px 0;
+}
+
+.default-txt {
+	border-radius: 4px;
+	background: var(--5, #00D061);
+	padding: 2px 8px;
+}
+
+.default-txt p {
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 16px;
+}
+
+/************************ 36.Promo Voucher CSS ***************************/
+.redeem-txt a {
+	border-radius: 8px;
+	background: var(--2, #12151C);
+	padding: 12px;
+	color: var(--1, #FFF);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.enter-code input {
+	border-radius: 8px !important;
+	background: var(--7, #F5F5F5);
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+	border: 0;
+	padding: 12px;
+}
+
+.promocode-content {
+	display: flex;
+	justify-content: space-between;
+	gap: 12px;
+	align-items: center;
+}
+
+.enter-code {
+	width: 100%;
+}
+
+.enter-code input:focus {
+	background: var(--7, #F5F5F5) !important;
+}
+
+.border-green,
+.selected-border {
+	border: 2px solid #00D061 !important;
+}
+
+#promo-voucher-main .border-green {
+	border: 2px solid var(--2, #12151C) !important;
+}
+
+#choose-delivery-main .checkout-second,
+#promo-voucher-main .checkout-second,
+#select-promo-voucher-main .checkout-second,
+#choose-delivery-partner .checkout-second,
+#delivery-address-main .checkout-second {
+	border: 2px solid transparent;
+}
+
+#select-promo-voucher-main .border-green .partner-logo {
+	border: 2px solid var(--5, #00D061);
+	background: var(--1, #FFF) !important;
+}
+
+#select-promo-voucher-main .border-green .partner-logo img.white-icon {
+	filter: brightness(0) saturate(100%);
+}
+
+.partner-bottom-wrap {
+	align-items: unset;
+}
+
+#choose-delivery-partner .partner-bottom-wrap {
+	align-items: unset;
+}
+
+.partner-price p {
+	color: var(--6, #FC342F);
+	text-align: right;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+#choose-delivery-partner .border-green .partner-price p {
+	color: var(--5, #00D061);
+}
+
+#choose-delivery-partner .partner-logo img {
+	mix-blend-mode: darken;
+}
+
+#promo-voucher-main .redeem-txt {
+	width: fit-content;
+}
+
+/************************ 37.Choose Method CSS ***************************/
+#choose-payment-main .delete-select {
+	margin-left: auto;
+}
+
+.delete-account-bottom {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	border: 2px solid transparent;
+}
+
+#choose-payment-main .delete-account-bottom input {
+	width: 20px;
+	height: 20px;
+	outline: 2px solid #00D061;
+	outline-offset: 0px;
+	outline: 0;
+	margin: 0;
+}
+
+#choose-payment-main .form-check-input:checked[type=radio] {
+	outline: 2px solid #00D061;
+	outline-offset: 4px;
+	background: #00D061;
+	border: 0;
+	width: 11px;
+	height: 11px;
+	margin-right: 5px;
+}
+
+.delivery-address-content {
+	display: flex;
+	justify-content: space-between;
+}
+
+/************************ 38.Payment Processing Modal CSS ***************************/
+.sk-fading-circle {
+	width: 64px;
+	height: 64px;
+	position: relative;
+}
+
+.sk-fading-circle .sk-circle {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.sk-fading-circle .sk-circle:before {
+	content: '';
+	display: block;
+	margin: 0 auto;
+	width: 15%;
+	height: 15%;
+	background-color: #12151C;
+	border-radius: 100%;
+	-webkit-animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+	animation: sk-circleFadeDelay 1.2s infinite ease-in-out both;
+}
+
+.sk-fading-circle .sk-circle2 {
+	-webkit-transform: rotate(30deg);
+	-ms-transform: rotate(30deg);
+	transform: rotate(30deg);
+}
+
+.sk-fading-circle .sk-circle3 {
+	-webkit-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	transform: rotate(60deg);
+}
+
+.sk-fading-circle .sk-circle4 {
+	-webkit-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.sk-fading-circle .sk-circle5 {
+	-webkit-transform: rotate(120deg);
+	-ms-transform: rotate(120deg);
+	transform: rotate(120deg);
+}
+
+.sk-fading-circle .sk-circle6 {
+	-webkit-transform: rotate(150deg);
+	-ms-transform: rotate(150deg);
+	transform: rotate(150deg);
+}
+
+.sk-fading-circle .sk-circle7 {
+	-webkit-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.sk-fading-circle .sk-circle8 {
+	-webkit-transform: rotate(210deg);
+	-ms-transform: rotate(210deg);
+	transform: rotate(210deg);
+}
+
+.sk-fading-circle .sk-circle9 {
+	-webkit-transform: rotate(240deg);
+	-ms-transform: rotate(240deg);
+	transform: rotate(240deg);
+}
+
+.sk-fading-circle .sk-circle10 {
+	-webkit-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+.sk-fading-circle .sk-circle11 {
+	-webkit-transform: rotate(300deg);
+	-ms-transform: rotate(300deg);
+	transform: rotate(300deg);
+}
+
+.sk-fading-circle .sk-circle12 {
+	-webkit-transform: rotate(330deg);
+	-ms-transform: rotate(330deg);
+	transform: rotate(330deg);
+}
+
+.sk-fading-circle .sk-circle2:before {
+	-webkit-animation-delay: -1.1s;
+	animation-delay: -1.1s;
+}
+
+.sk-fading-circle .sk-circle3:before {
+	-webkit-animation-delay: -1s;
+	animation-delay: -1s;
+}
+
+.sk-fading-circle .sk-circle4:before {
+	-webkit-animation-delay: -0.9s;
+	animation-delay: -0.9s;
+}
+
+.sk-fading-circle .sk-circle5:before {
+	-webkit-animation-delay: -0.8s;
+	animation-delay: -0.8s;
+}
+
+.sk-fading-circle .sk-circle6:before {
+	-webkit-animation-delay: -0.7s;
+	animation-delay: -0.7s;
+}
+
+.sk-fading-circle .sk-circle7:before {
+	-webkit-animation-delay: -0.6s;
+	animation-delay: -0.6s;
+}
+
+.sk-fading-circle .sk-circle8:before {
+	-webkit-animation-delay: -0.5s;
+	animation-delay: -0.5s;
+}
+
+.sk-fading-circle .sk-circle9:before {
+	-webkit-animation-delay: -0.4s;
+	animation-delay: -0.4s;
+}
+
+.sk-fading-circle .sk-circle10:before {
+	-webkit-animation-delay: -0.3s;
+	animation-delay: -0.3s;
+}
+
+.sk-fading-circle .sk-circle11:before {
+	-webkit-animation-delay: -0.2s;
+	animation-delay: -0.2s;
+}
+
+.sk-fading-circle .sk-circle12:before {
+	-webkit-animation-delay: -0.1s;
+	animation-delay: -0.1s;
+}
+
+@keyframes sk-circleFadeDelay {
+
+	0%,
+	39%,
+	100% {
+		opacity: 0;
+	}
+
+	40% {
+		opacity: 1;
+	}
+}
+
+/************************ 39.Leave Review CSS ***************************/
+.review-sec {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 24px 16px;
+}
+
+.star-rating {
+	direction: rtl;
+	text-align: center;
+	cursor: default;
+}
+
+.star-rating input[type=radio] {
+	display: none;
+}
+
+.star-rating label {
+	color: #F97316;
+	font-size: 2rem;
+	padding: 0;
+	cursor: pointer;
+	transition: all 0.3s ease-in-out;
+}
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input[type=radio]:checked~label {
+	color: rgb(249 115 22 / 24%);
+}
+
+.product-rate-commentsec {
+	position: relative;
+}
+
+.product-comment {
+	width: 100%;
+	border-radius: 8px;
+	resize: none;
+	background: #F0F0F0;
+	position: relative;
+}
+
+.product-textarea1 {
+	width: 100%;
+	resize: none;
+	height: 135px;
+	border: none;
+	padding: 16px;
+	background: #F0F0F0;
+	border-radius: 8px;
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+#image-label,
+#video-label {
+	display: none;
+}
+
+.leave-review-sec {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.review-wrap-sec {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+
+.add-image {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	padding: 7px 12px;
+	border-radius: 4px;
+	background: var(--1, #FFF);
+	border-radius: 5px;
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+input[type="file"] {
+	display: none;
+}
+
+.icon {
+	margin-right: 8px;
+}
+
+.comment-bottom-btn {
+	display: flex;
+	gap: 16px;
+	padding: 16px;
+}
+
+.add-image-sec,
+.add-video-sec {
+	display: block;
+}
+
+/************************ 40.Filter CSS ***************************/
+.filter-modal .pricing-slider .irs-slider {
+	height: 22px;
+	width: 22px;
+	background: #ffffff;
+	border: 2px solid #00D061;
+	z-index: 0;
+}
+
+.filter-modal .pricing-slider .irs-line {
+	height: 4px;
+	border: none;
+	background: #FFFFFF;
+	border-radius: 2px;
+}
+
+.filter-modal .pricing-slider .irs-bar {
+	height: 4px;
+	border: none;
+	background: #00D061;
+	border-radius: 2px;
+}
+
+.filter-modal .pricing-slider .irs-min,
+.filter-modal .pricing-slider .irs-max {
+	display: none;
+}
+
+.filter-sec input[type="radio"] {
+	display: none;
+}
+
+.filter-modal span.irs-to,
+.filter-modal span.irs-from {
+	display: flex;
+	top: -10px;
+	justify-content: center;
+	border-radius: 5px;
+	align-items: center;
+	z-index: 2;
+}
+
+.filter-modal .pricing-slider .irs-from,
+.filter-modal .pricing-slider .irs-to {
+	background-color: #000;
+	width: 34px;
+	height: 20px;
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 12px;
+}
+
+.filter-modal span.irs-to:before,
+.filter-modal span.irs-from:before {
+	content: "";
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	background: #000;
+	bottom: -4px;
+	rotate: 137deg;
+	z-index: -1;
+	border-radius: 5px;
+}
+
+.irs {
+	height: 50px;
+}
+
+.rating-sec {
+	border-radius: 12px;
+	border: 2px solid var(--2, #12151C);
+	backdrop-filter: blur(2px);
+	padding: 8px 12px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 52px;
+	height: 32px;
+}
+
+.filter-rating-screen-wrap {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.rating-sec.active {
+	border-radius: 12px;
+	background: var(--2, #12151C);
+}
+
+.filter-star-img {
+	margin-right: 5px;
+	height: 16px;
+	display: flex;
+}
+
+.rating-sec.active .filter-txt {
+	color: white;
+}
+
+.filter-txt {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 16px;
+}
+
+/************************ 41.Add New Address2 CSS ***************************/
+.iti__arrow:before {
+	content: url(../svg/up-arrow.svg) !important;
+	position: absolute;
+	left: 0;
+	top: 0px;
+	padding-left: 20px;
+	margin-left: 12px !important;
+	cursor: pointer;
+}
+
+.iti__arrow {
+	border: 0 !important;
+	margin-left: 12px !important;
+}
+
+.mobile-form {
+	border-radius: 8px;
+	background: #FFFFFF;
+	padding: 12px;
+}
+
+.sign-in-custom-input {
+	border: none;
+	background: transparent;
+	width: 100%;
+	padding-left: 12px;
+	color: var(--3, #67696B);
+	font-family: "Space Grotesk", sans-serif;
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.iti__selected-dial-code {
+	display: none;
+}
+
+#mobile_code {
+	margin-left: 20px;
+	padding-right: 0;
+}
+
+.iti--separate-dial-code .iti__selected-flag {
+	background-color: transparent !important;
+}
+
+.iti {
+	display: flex !important;
+}
+
+.form-details-sign-in {
+	border-radius: 8px;
+	background: #F0F0F0;
+	padding: 12px;
+	display: flex;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.location-img {
+	position: relative;
+	text-align: center;
+}
+
+.location-pin {
+	position: absolute;
+	bottom: 25%;
+	left: 40%;
+}
+
+.map-img {
+	border-radius: 24px;
+}
+
+/************************ 42.Add New Card CSS ***************************/
+.demo-visa {
+	background-image: url(../images/payment-method/visa-card.png);
+	background-position: center;
+	background-repeat: no-repeat;
+	max-height: 200px;
+	height: 100%;
+	max-width: 343px;
+	width: 100%;
+	margin: 0 auto;
+	border-radius: 24px;
+	padding: 24px;
+}
+
+.card-hidden-number {
+	color: var(--1, #FFF);
+	font-family: "IBM Plex Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 30px;
+	letter-spacing: 1px;
+}
+
+.card-name-jessica {
+	width: 100%;
+	max-width: 170px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	color: var(--1, #FFF);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+}
+
+.card-date-cvv {
+	color: var(--1, #FFF);
+	text-align: right;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 24px;
+	letter-spacing: 0.8px;
+	text-transform: uppercase;
+}
+
+.new_password_input .form-item input {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	border: navajowhite;
+	padding: 12px 16px;
+	margin-top: 8px;
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+.info-person {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 18px;
+}
+
+.new_password_input .form-item input::placeholder {
+	color: #212B46;
+}
+
+.ui-datepicker-header a.ui-datepicker-next {
+	right: 0;
+	background: url(../svg/right-arrow.svg);
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: 50%;
+}
+
+.ui-datepicker-header a.ui-datepicker-prev {
+	left: 0;
+	background: url(../svg/right-arrow.svg);
+	background-repeat: no-repeat;
+	background-size: 16px;
+	background-position: 50%;
+	transform: rotate(180deg);
+}
+
+.ui-datepicker-header a>span {
+	display: none;
+}
+
+#ui-datepicker-div {
+	display: none;
+	background-color: #fff;
+	box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.1);
+	margin-top: 0.25rem;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.ui-datepicker-calendar thead th {
+	padding: 0.25rem 0;
+	text-align: center;
+	font-size: 0.75rem;
+	font-weight: 400;
+	color: #78909C;
+}
+
+.ui-datepicker-calendar tbody td {
+	width: 2.5rem;
+	text-align: center;
+	padding: 0;
+}
+
+div#ui-datepicker-div {
+	z-index: 500 !important;
+}
+
+.ui-datepicker-calendar tbody td a {
+	display: block;
+	border-radius: 0.25rem;
+	line-height: 2rem;
+	transition: 0.3s all;
+	color: #546E7A;
+	font-size: 0.875rem;
+	text-decoration: none;
+}
+
+.ui-datepicker-calendar tbody td a:hover {
+	background-color: rgb(252 52 47 / 40%);
+}
+
+.ui-datepicker-calendar tbody td a.ui-state-active {
+	background-color: #FC342F;
+	color: white;
+}
+
+.ui-datepicker-header a.ui-corner-all {
+	cursor: pointer;
+	position: absolute;
+	top: 0;
+	width: 2rem;
+	height: 2rem;
+	margin: 0.5rem;
+	border-radius: 0.25rem;
+	transition: 0.3s all;
+}
+
+.ui-datepicker-title {
+	text-align: center;
+	line-height: 32px;
+	margin-bottom: 10px;
+	font-size: 16px;
+	font-weight: 500;
+}
+
+.expiry-date.mt-16 {
+	display: flex;
+	column-gap: 16px;
+}
+
+.card-name-jessica-main-sub {
+	display: flex;
+	align-items: center;
+	gap: 30px;
+}
+
+.date-number-cvv {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+/************************ 43.Account CSS ***************************/
+.account-top-sec {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+}
+
+.account-edit img {
+	width: 24px;
+	height: 24px;
+	display: flex;
+}
+
+.account-img img {
+	border-radius: 50%;
+}
+
+/************************ 44.Profile Edit CSS ***************************/
+.profile-edit-img {
+	text-align: center;
+	position: relative;
+	width: 120px;
+	height: 120px;
+	margin: auto;
+}
+
+.profile-edit-img img {
+	border-radius: 60px;
+	max-width: 200px;
+	max-height: 200px;
+	width: 100%;
+	height: auto;
+}
+
+.image-input {
+	position: absolute;
+	bottom: 6px;
+	right: 0px;
+}
+
+.image-input input {
+	display: none;
+}
+
+.image-button {
+	background: black;
+	padding: 8px;
+	border-radius: 20px;
+	cursor: pointer;
+}
+
+.custom-icon-edit {
+	position: absolute;
+	right: 16px;
+	top: 35%;
+	cursor: pointer;
+}
+
+.arrow-icon1 {
+	background-position: 100% center;
+	padding: 0 0 0 6px !important;
+}
+
+/************************ 45.Homescreen2 CSS ***************************/
+#homescreen2-main .search-text {
+	height: 48px;
+}
+
+.search-text {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 24px;
+}
+
+#homescreen2-main .logos1 {
+	transform: none;
+	top: 0;
+}
+
+#homescreen2-main .shop-now2-sec {
+	background-image: url(../images/homescreen2/shop-now1.png);
+}
+
+#homescreen2-main .homescreen-third-wrapper {
+	background: var(--4, #FFAA01);
+}
+
+#homescreen2-main .homescreen1-offer-img img {
+	width: 100%;
+}
+
+/************************ 46.Rating Review CSS ***************************/
+#rating-review .review-progress {
+	border-bottom: 2px solid white;
+	padding-bottom: 24px;
+}
+
+.rating-second-sec-wrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+}
+
+.rating-review-sec {
+	width: 50%;
+	border-radius: 12px;
+	border: 2px solid var(--2, #12151C);
+	background: linear-gradient(180deg, rgba(255, 255, 255, 0.40)0%, rgba(255, 255, 255, 0.30)100%);
+	backdrop-filter: blur(2px);
+	text-align: center;
+	padding: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 12px;
+}
+
+.rating-review-sec span {
+	color: var(--3, #464849);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+.rating-review ul {
+	padding: 0;
+	margin: 0;
+	list-style-type: none;
+}
+
+.rating-review ul li {
+	display: inline-block;
+}
+
+.review-wrapper {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.review1 {
+	margin-left: auto;
+}
+
+.review img {
+	border-radius: 50%;
+}
+
+.review-time {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 10px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 12px;
+}
+
+.review-para {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 400;
+	line-height: 18px;
+}
+
+.review-helpful-sec-full {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	border-bottom: 1px solid hsl(222deg 22% 9% / 8%);
+	border-top: 1px solid hsl(222deg 22% 9% / 8%);
+	padding: 8px 0;
+}
+
+.helpful-txt {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.rating-review {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
+
+.like-txt1 {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 12px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 18px;
+}
+
+.review h4 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 20px;
+}
+
+.review-img-sec.mt-12 {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.review-img-sec img {
+	border-radius: 12px;
+}
+
+/************************ 47.Wallet CSS ***************************/
+.Wallet-first-content {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 12px;
+}
+
+.wallet-title {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 20px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 30px;
+}
+
+.wallet-txt2 {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 24px;
+}
+
+.payment-method-checkoutpage-full {
+	display: flex;
+	padding: 0 16px;
+	gap: 8px;
+}
+
+.check-select-mode input[type="radio"] {
+	display: none;
+}
+
+.payment-custom-radio {
+	width: 70px;
+	height: 49px;
+	background: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+/************************ 48.Cart CSS ***************************/
+.edit-cart-btn {
+	border-radius: 36px;
+	background: var(--2, #12151C);
+	width: 36px;
+	height: 36px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.edit-cart-btn img {
+	width: 18px;
+	height: 18px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+#cart-main .delete-btn {
+	margin-left: auto;
+}
+
+.tooltip-button {
+	position: relative;
+	padding: 10px 20px;
+}
+
+.total-checkout-order p:after {
+	content: '';
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	margin-left: -5px;
+	border-width: 10px;
+	border-style: solid;
+	border-color: #fc342f #fc342f00 #fc342f00 #88888800;
+}
+
+.total-checkout-order p {
+	background-color: #FC342F;
+	color: #fff;
+	text-align: center;
+	padding: 12px;
+	border-radius: 12px;
+	color: var(--1, #FFF);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.total-checkout-order {
+	position: fixed;
+	left: 0;
+	right: 0;
+	max-width: 288px;
+	margin-left: auto;
+	margin-right: auto;
+	bottom: 90px;
+	padding: 0 16px;
+}
+
+#cart-main {
+	padding-bottom: 160px;
+}
+
+.cart-modal-title h2 {
+	color: var(--2, #12151C);
+	text-align: center;
+	font-family: "IBM Plex Sans";
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+#cart-product-modal .overview-txt h2 {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 24px;
+	font-style: normal;
+	font-weight: 700;
+	line-height: 32px;
+}
+
+#cart-product-modal .modal-dialog {
+	position: fixed !important;
+	bottom: 0 !important;
+	left: 0% !important;
+	right: 0% !important;
+	margin-bottom: 0 !important;
+}
+
+.border-bottom-modal {
+	border-top: 2px solid white;
+	border-bottom: 2px solid white;
+	padding-bottom: 24px;
+	margin-top: 24px;
+}
+
+#cart-product-modal .finger-print-bottom {
+	padding-bottom: 24px;
+}
+
+#cart-product-modal .modal-body {
+	border-radius: 24px 24px 0px 0 !important;
+}
+
+.account-name h3 {
+	color: var(--2, #12151C);
+	text-overflow: ellipsis;
+	font-family: "IBM Plex Sans";
+	font-size: 18px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+}
+
+.account-name p {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+}
+
+/************************ 49.Notification CSS ***************************/
+.notification-deatails {
+	border-radius: 12px;
+	background: var(--1, #FFF);
+	padding: 12px;
+	margin-top: 8px;
+}
+
+.notification-deatails h3 {
+	overflow: hidden;
+	color: var(--2, #12151C);
+	text-overflow: ellipsis;
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 24px;
+	display: -webkit-box;
+	width: 319px;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 1;
+}
+
+.notification-deatails p {
+	color: var(--3, #464849);
+	font-family: "IBM Plex Sans";
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 500;
+	line-height: 20px;
+	margin-top: 8px;
+}
+
+.noti-time {
+	color: var(--2, #12151C);
+	font-family: "IBM Plex Sans";
+	font-size: 16px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 18px;
+	text-transform: uppercase;
+}
+
+.menu-sidebar .btn-close:focus {
+	box-shadow: none !important;
+}
+
+/************************ 50.Preloader CSS ***************************/
+.preloader {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: auto;
+	background: -o-radial-gradient(circle, #333, #000) no-repeat;
+	background: radial-gradient(circle, #333, #000) no-repeat;
+	z-index: 999;
+	text-align: center;
+	overflow: hidden;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+}
+
+.opposites {
+	position: relative;
+	width: 60px;
+	height: 60px;
+}
+
+.opposites {
+	animation: opposites 2.5s ease-out 0s infinite;
+}
+
+.tl,
+.tr,
+.br,
+.bl {
+	width: 30px;
+	height: 30px;
+	position: absolute;
+}
+
+.tl,
+.tr {
+	top: 0;
+}
+
+.tr,
+.br {
+	left: 30px;
+}
+
+.tl,
+.br {
+	animation: tlbr 2.5s ease-out 0s infinite;
+}
+
+.br,
+.bl {
+	top: 30px;
+}
+
+.tl,
+.bl {
+	left: 0;
+}
+
+.tr,
+.bl {
+	animation: trbl 2.5s ease-out 0s infinite;
+}
+
+.tl {
+	background: #FC342F;
+	transform-origin: bottom right;
+}
+
+.tr {
+	background: #00D061;
+	transform-origin: bottom left;
+}
+
+.br {
+	background: #FFAA01;
+	transform-origin: top left;
+}
+
+.bl {
+	background: #ffffff;
+	transform-origin: top right;
+}
+
+@keyframes tlbr {
+	0% {
+		transform: rotate(0);
+	}
+
+	20% {
+		transform: rotate(90deg);
+	}
+
+	40% {
+		transform: rotate(90deg);
+	}
+
+	60% {
+		transform: rotate(0);
+	}
+}
+
+@keyframes trbl {
+	20% {
+		transform: rotate(0);
+	}
+
+	40% {
+		transform: rotate(90deg);
+	}
+
+	60% {
+		transform: rotate(90deg);
+	}
+
+	80% {
+		transform: rotate(0);
+	}
+}
+
+@keyframes opposites {
+	80% {
+		transform: rotate(0deg);
+	}
+
+	100% {
+		transform: rotate(360deg);
+	}
+}

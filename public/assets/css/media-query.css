@@ -1,0 +1,389 @@
+@media(max-width:1500px){
+	.custom-slider-btn{
+		right: -32%;
+	}
+}
+@media(max-width:1199px){
+	.custom-slider-btn{
+		right: -45%;
+	}
+	#about-us-main,
+	#account-created-main,
+	#best-seller-main,
+	#category1-main,
+	#let-get-started-main,
+	#sign-up-main,
+	#language-main,
+	#choose-interest-main,
+	#search-screen-main,
+	#recent-search-screen-main,
+	#hot-deal-week,
+	#search-not-found-main,
+	#feature-product-main,
+	#choose-brand-main,
+	#new-arrival,
+	#clothes-main,
+	#choose-delivery-main,
+	#choose-delivery-partner,
+	#choose-payment-main,
+	#promo-voucher-main,
+	#delete-account-main,
+	#delete-account-main,
+	#delete-deactivate-main,
+	#invite-friend-main,
+	#contact-us-main,
+	#feedback-main,
+	#data-privacy-main,
+	#notification-setting-main,
+	#add-new-address1-main,
+	#add-new-address2-main,
+	#add-new-card,
+	#profile-edit-main,
+	#wishlist-main,
+	#rating-review,
+	#wallet-main,
+	#cart-main,
+	#onboarding,
+	#verify-main,
+	#fingerprint-main,
+	#filter-main,
+	#account-main,
+	#active-order-main,
+	#order-track-main,
+	#empty-order-main,
+	#leave-review-main,
+	#select-promo-voucher-main,
+	#security-main,
+	#marketing-preference-main,
+	#faq-main{
+		overflow-y: scroll;
+	}
+}
+@media(max-width:991px){
+	.custom-slider-btn{
+		right: -60%;
+	}
+	#contact-us-main .oval-frame{
+		width: 100%;
+	}
+	.homescreen-details,
+	.seller-sec-content,
+	.you-may-like-sec-content,
+	.sign-up-wrap
+	.brands-bottom ,
+	#homepage1-tab,
+	#search-screen-main .homescreen1-featured-bottom,
+	.homescreen1-featured-bottom,
+	.brands-bottom,
+	.payment-method-checkoutpage-full {
+		overflow-x: scroll;
+	}
+}
+@media(max-width:600px){
+	.custom-slider-btn{
+		right: -75%;
+	}
+}
+@media(max-width:500px){
+	.progress-content {
+		width: 70%;
+	}
+	.review-star-content {
+		width: 30%;
+		text-align: end;
+	}
+	.custom-slider-btn {
+		right: -65%;
+	}
+	.homescreen1-offer-img {
+		width: 45%;
+	}
+	.special-offer1 {
+		width: 55%;
+	}
+}
+@media(max-width:400px){
+	#let-get-started-main .oval-frame,
+	#account-created-main .oval-frame,
+	#empty-cart-main .oval-frame,
+	#empty-order-main .oval-frame ,
+	.onboarding-bg-img2 img,
+	#search-not-found-main .oval-frame{
+		width: 100%;
+	}
+	.single-slider-btn-prev{
+		left: -4%;
+	} 
+	.single-slider-btn-next{
+		right: -4%;
+	}
+	.progress-content {
+		width: 60%;
+	}
+	.review-star-content {
+		width: 40%;
+		text-align: end;
+	}
+	.rating {
+		width: 70%;
+	}
+	.review-first-sec-wrap {
+		width: 30%;
+	}
+	.img-txt{
+		bottom: 32px;
+	}
+	.filter-rating-screen-wrap {
+		overflow-x: scroll;
+	}
+}
+@media(max-width:370px){
+	.about-us-icon-wrapper{
+		flex-wrap: wrap;
+		justify-content: space-around;
+	}
+	.homescreen1-offer-img{
+		display: none;
+	}
+	.special-offer1{
+		width: 100%;
+	}
+	.home1-tab-favourite{
+		margin-left: inherit;
+		flex-direction: row;
+		gap: 16px;
+	}
+	.home1-tab-details{
+		width: 100%;
+	}
+	.home1-tab-details-full{
+		justify-content: space-between;
+	}
+	.home1-tab-img{
+		width: 100%;
+	}
+	#empty-order-tab{
+		overflow-x: scroll;
+	}
+	.empty-order-content-tab-btn{
+		padding: 8px !important;
+	}
+	.partner-bottom-wrap{
+		display: block;
+	}
+	.partner-logo,
+	#checkout-main .bank-img{
+		margin-bottom: 12px;
+	}
+	.comment-bottom-btn{
+		flex-wrap: wrap;
+	}
+	.icons_main a{
+		padding: 15px;
+	}
+	.otp-section input{
+		width: 40px;
+		height: 50px;
+	}
+	.create-new-pin-main .otp-section input{
+		width: 60px;
+		height: 55px;
+	}
+	.category1-img img{
+		width: 100%;
+	}
+	#choose-delivery-partner .partner-price p{
+		text-align: left;
+	}
+	.map-img{
+		width: 100%;
+	}
+	.review-img-sec,
+	.rating-review{
+		flex-wrap: wrap;
+	}
+	.account-img img{
+		width: 50px;
+		height: 50px;
+	}
+}
+@media(max-width:320px){
+	.icons_main a{
+		padding: 12px;
+	}
+	.category1-wrap {
+		display: grid;
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.sign-up-content h1,
+	.onboarding-content h1,
+	.onboarding-content h2{
+		font-size: 28px;
+	}
+	.pt-24{
+		padding-top: 20px;
+	}
+	.otp-section {
+		column-gap: 8px;
+	}
+	.otp-section input{
+		width: 40px;
+		height: 50px;
+	}
+	.invite-friend-wrapper{
+		column-gap: 8px;
+		padding: 8px 10px 8px 8px;
+	}
+	.invite-img img{
+		width: 60px;
+	}
+	nav{
+		column-gap: 14px;
+	}
+	.additional-info-content div:first-child{
+		width: 60%;
+	}
+	.additional-info-content div:last-child {
+		width: 40%;
+	}
+	.clothes-size-sec, 
+	.cloths-color-sec{
+		overflow-x: scroll;
+	}
+	.shape{
+		width: 60px;
+		height: 60px;
+	}
+	.home1-tab-details-full{
+		flex-wrap: wrap;
+	}
+	.order-txt1{
+		font-size: 12px;
+	}
+	.order-status-details{
+		padding: 10px;
+	}
+	.order1::before{
+		margin-top: 20px;
+	}
+	.active-order-content{
+		display: block;
+	}
+	.order-second-content{
+		width: 100%;
+		padding-top: 12px;
+	}
+	.active-second-title,
+	.delete-btn{
+		width: auto;
+	}
+	.promocode-content{
+		flex-wrap: wrap;
+	}
+	.finger-print-bottom{
+		flex-wrap: wrap;
+	}
+	.icons_main{
+		flex-wrap: wrap;
+	}
+	.category2-wrap {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	.choose-brand-wrap{
+		grid-template-columns: repeat(1, 1fr);
+	}
+	.demo-visa{
+		padding: 16px;
+	}
+	.date-number-cvv,
+	.card-name-jessica-main-sub{
+		flex-wrap: wrap;
+	}
+	#fingerprint-main,
+	#choose-interest-main,
+	#filter-main,
+	#leave-review-main,
+	#security-main{
+		padding-bottom: 150px;
+	}
+	#homescreen-main,
+	#homescreen2-main{
+		padding-bottom: 90px;
+	}
+	.homescreen-title h1, .homescreen-category h2, .seller-title h2, .modal-txt, .review-sec h1, .filter-category-txt{
+		font-size: 20px;
+		line-height: 26px;
+	}
+	.bank-img{
+		width: 60px;
+		height: 45px;
+	}
+	#setting-main .setting-lanuage{
+		margin-right: 0;
+	}
+	.nested-accordion h3{
+		width: 200px;
+		-webkit-line-clamp: 1;
+	}
+	.language-main-preferred {
+		padding-bottom: 140px;
+	}
+	.tab-home1-txt1{
+		width: 250px;
+	}
+	.homepage1-tab-details-wrapper {
+        flex-wrap: wrap;
+    }
+    .hot-deal-week-wrap {
+		grid-template-columns: repeat(1, 1fr);
+	}
+}
+@media(max-width:280px){
+	.otp-section input {
+		width: 35px;
+		height: 45px;
+	}
+	.create-new-pin-main .otp-section input{
+		width: 55px;
+		height: 45px;
+	}
+	.search-btn,
+	.bottom-tabbar a.active span{
+		display: none;
+	}
+	.bottom-tabbar a.active{
+		padding: 0 8px;
+	}
+	.bottom-tabbar a:first-child{
+		margin-left: 8px;
+	}
+	.bottom-tabbar a:last-child{
+		margin-right: 8px;
+	}
+	.category2-wrap {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.friend-invite{
+		display: none;
+	}
+	.review-progress{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
+	.rating{
+		width: 100%
+	}
+	#onboarding .custom-slider-btn,
+	.account-edit{
+		display: none;
+	}
+	#onboarding .splash-btn {
+		position: fixed;
+		bottom: 0;
+		width: 90%;
+		left: 0;
+		right: 0;
+		text-align: center;
+		margin: 0 16px;
+	}
+}
