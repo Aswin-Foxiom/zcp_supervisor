@@ -178,9 +178,11 @@ ul {
 }
 
 .border-radius,
-.sign-up-btn a,
+.sign-up-btn button,
+/* .sign-up-btn a, */
 .icons_main a,
-.sign-in-btn a,
+.sign-in-btn button,
+/* .sign-in-btn a, */
 .input-wrapper {
 	border-radius: 12px;
 }
@@ -274,8 +276,10 @@ ul {
 }
 
 .display-flex,
-.sign-up-btn a,
-.sign-in-btn a,
+.sign-up-btn button,
+.sign-in-btn button,
+/* .sign-up-btn a,
+.sign-in-btn a, */
 .footer ul,
 .otp-section,
 .timer-counter-content,
@@ -784,11 +788,14 @@ ul {
 	line-height: 30px;
 }
 
-.sign-up-btn a,
-.sign-in-btn a {
+/* .sign-up-btn a,
+.sign-in-btn a { */
+.sign-up-btn button,
+.sign-in-btn button {
 	width: 100%;
 	background: var(--6, #FC342F);
 	padding: 12px 0;
+	border: none;
 	margin: auto;
 	max-width: 600px;
 	color: var(--1, #FFF);

@@ -20,13 +20,21 @@ import WorkDataPage from "./pages/private/WorkDataPage";
 import SignaturePage from "./pages/private/SignaturePage";
 import Reports from "./pages/private/Reports";
 import NotFound from "./pages/public/NotFound";
+import PrivateRoute from "./utils/PrivateRoute";
 
 function App() {
   return (
     <div>
       <Routes>
         <Route path={BasePathUrl + LoginPathUrl} element={<LoginPage />} />
-        <Route path={BasePathUrl} element={<RouterConnection />}>
+        <Route
+          path={BasePathUrl}
+          element={
+            <PrivateRoute>
+              <RouterConnection />
+            </PrivateRoute>
+          }
+        >
           <Route index element={<Dashboard />} />
           <Route path={ClientsListPathUrl} element={<ClientsList />} />
           <Route path={ClientDetailsPathUrl} element={<ClientDetails />} />

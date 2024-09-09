@@ -1,9 +1,19 @@
 import React from "react";
 import Background from "../../components/common/Background";
-import { Link } from "react-router-dom";
-import { BasePathUrl, ClientsListPathUrl } from "../../services/UrlPaths";
+import { Form, Formik } from "formik";
+import AppInput from "../../components/input/AppInput";
+import { loginValidationSchema } from "../../utils/Validation";
 
 function LoginPage() {
+  const formValues = {
+    initialValues: { username: "", password: "" },
+    validationSchema: loginValidationSchema,
+    onSubmit: (values) => {
+      console.log(values);
+    },
+  };
+
+  const Login = async () => {};
   return (
     <div style={{ height: "100vh" }}>
       <div className="site-content">
@@ -17,7 +27,7 @@ function LoginPage() {
                   Sign in to access your account
                 </p>
               </div>
-              <form className="sign-up-form pt-24">
+              {/* <form className="sign-up-form pt-24">
                 <div>
                   <label htmlFor="email" className="name-txt">
                     Username
@@ -53,10 +63,36 @@ function LoginPage() {
                     <i className="fas fa-eye-slash" id="eye" />
                   </div>
                 </div>
-              </form>
-              <div className="sign-up-btn  pt-24">
-                <Link to={BasePathUrl + ClientsListPathUrl}>Sign In</Link>
-              </div>
+              </form> */}
+              <Formik
+                initialValues={formValues.initialValues}
+                validationSchema={formValues.validationSchema}
+                onSubmit={formValues.onSubmit}
+              >
+                {() => (
+                  <Form>
+                    <AppInput
+                      img="/assets/svg/email.svg"
+                      name="username"
+                      label="Username"
+                      type="text"
+                      required
+                    />
+                    <AppInput
+                      img="/assets/svg/email.svg"
+                      name="password"
+                      label="Password"
+                      type="text"
+                      icon={<i className="fas fa-eye-slash" id="eye" />}
+                      required
+                    />
+
+                    <div className="sign-up-btn  pt-24">
+                      <button type="submit">Submit</button>
+                    </div>
+                  </Form>
+                )}
+              </Formik>
 
               <footer className="footer">
                 <div className="block-footer">
