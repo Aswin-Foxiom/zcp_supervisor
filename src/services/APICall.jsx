@@ -3,7 +3,13 @@ import { baseUrl } from "./Urls";
 import { showToast } from "../utils/Toast";
 
 // Common Axios call function
-const apiCall = async (method, endpoint, data = {}, params = {}) => {
+const apiCall = async (
+  method,
+  endpoint,
+  data = {},
+  params = {},
+  is_formdata
+) => {
   try {
     var endpoint = baseUrl + endpoint;
     const response = await axios({
@@ -12,9 +18,11 @@ const apiCall = async (method, endpoint, data = {}, params = {}) => {
       data: method !== "get" ? data : null, // Only send data for non-GET requests
       params: method === "get" ? params : null, // Only send params for GET requests
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": is_formdata
+          ? "multipart/form-data"
+          : "application/json",
         Authorization: "Bearer " + localStorage.getItem("token"),
-        access: "superadmin",
+        access: "supervisor",
       },
     });
     const return_data = {

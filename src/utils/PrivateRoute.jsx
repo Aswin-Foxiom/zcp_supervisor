@@ -9,7 +9,7 @@ function PrivateRoute({ children }) {
   if (User === null || User === false) {
     return <Navigate to={BasePathUrl + LoginPathUrl} />;
   }
-  if (!User?.role === "superadmin") {
+  if (!User?.role === "supervisor") {
     return <Navigate to={BasePathUrl + LoginPathUrl} />;
   }
   return children;

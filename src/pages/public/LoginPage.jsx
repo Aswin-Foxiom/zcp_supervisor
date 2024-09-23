@@ -1,19 +1,41 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import Background from "../../components/common/Background";
 import { Form, Formik } from "formik";
 import AppInput from "../../components/input/AppInput";
 import { loginValidationSchema } from "../../utils/Validation";
+import apiCall from "../../services/APICall";
+import { ContextDatas } from "../../services/Context";
+import { showToast } from "../../utils/Toast";
+import { useNavigate } from "react-router-dom";
+import { jwtDecode } from "jwt-decode";
 
 function LoginPage() {
+  let navigate = useNavigate();
+  const { User, setUser, seturlPath } = useContext(ContextDatas);
+  const [loading, setloading] = useState(false);
   const formValues = {
     initialValues: { username: "", password: "" },
     validationSchema: loginValidationSchema,
     onSubmit: (values) => {
-      console.log(values);
+      Login(values);
     },
   };
 
-  const Login = async () => {};
+  const Login = async (values) => {
+    setloading(true);
+    const response = await apiCall("post", `/auth/login`, values);
+    setloading(false);
+    if (response?.status) {
+      const { data } = response;
+
+      setUser(data?.profile);
+      localStorage.setItem("token", data?.token);
+      showToast("Succesfully logged in", true);
+      seturlPath("/clients");
+      return navigate("/clients");
+    }
+  };
+
   return (
     <div style={{ height: "100vh" }}>
       <div className="site-content">

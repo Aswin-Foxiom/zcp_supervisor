@@ -19,12 +19,12 @@ function Header() {
           <div className="header-logo-home">
             <div className="header-name">
               <a href="javascript:history.go(-1)">
-                <img src="assets/svg/left-arrow.svg" alt="left-arrow" />
+                <img src="/assets/svg/left-arrow.svg" alt="left-arrow" />
               </a>
             </div>
           </div>
           <div className="header-name">
-            <p className>{heading ?? "ZCP"}</p>
+            <p className>{"ZCP"}</p>
           </div>
           <div className="home-setting">
             <a href="/login">

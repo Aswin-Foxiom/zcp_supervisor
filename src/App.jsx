@@ -4,6 +4,7 @@ import RouterConnection from "./router/RouterConnection";
 import Dashboard from "./pages/private/Dashboard";
 import {
   BasePathUrl,
+  CashCustomerUrl,
   ClientDetailsPathUrl,
   ClientsListPathUrl,
   LoginPathUrl,
@@ -21,6 +22,7 @@ import SignaturePage from "./pages/private/SignaturePage";
 import Reports from "./pages/private/Reports";
 import NotFound from "./pages/public/NotFound";
 import PrivateRoute from "./utils/PrivateRoute";
+import CashCustomer from "./pages/private/CashCustomer";
 
 function App() {
   return (
@@ -42,6 +44,7 @@ function App() {
           <Route path={WorkDataPathUrl} element={<WorkDataPage />} />
           <Route path={SignaturePathUrl} element={<SignaturePage />} />
           <Route path={ReportsPathUrl} element={<Reports />} />
+          <Route path={CashCustomerUrl} element={<CashCustomer />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

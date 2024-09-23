@@ -1,7 +1,41 @@
-import React from "react";
+import React, { useRef, useState } from "react";
 import Background from "../../components/common/Background";
+import { useNavigate, useParams } from "react-router-dom";
+import apiCall from "../../services/APICall";
+import { showToast } from "../../utils/Toast";
+import axios from "axios";
 
 function WorkDataPage() {
+  const [selectedImage, setSelectedImage] = useState(null);
+  const { id } = useParams();
+  const fileInputRef = useRef(null);
+  let navigate = useNavigate();
+  const [workPendingDetails, setworkPendingDetails] = useState({
+    totalAmt: null,
+    note: null,
+  });
+
+  const handlePaymentMethodChange = (event) => {
+    setworkPendingDetails({
+      ...workPendingDetails,
+      method: event.target.value, // Update the method value
+    });
+  };
+
+  const handleSubmit = async () => {
+    const response = await apiCall("put", `/works/${id}`, workPendingDetails);
+    if (response?.status) {
+      showToast("services List Updated ", true);
+      return navigate(`/signature/${id}`);
+    }
+  };
+
+  // Handle image selection
+  const handleImageChange = (event) => {
+    // axios.post();
+    setSelectedImage(event.target.files[0]); // Store the selected image file
+  };
+
   return (
     <div style={{ height: "100vh" }}>
       <section id="add-new-card" className="background1">
@@ -12,79 +46,24 @@ function WorkDataPage() {
             <div className="new_password_input" id="new-card-inputs">
               <div className="mt-2">
                 <label className="info-person" htmlFor="username">
-                  Total Amount
+                  Total Price
                 </label>
                 <div className="input-wrapper">
                   <input
                     type="text"
+                    value={workPendingDetails?.totalAmt || ""} // Default to empty string if undefined
+                    onChange={(e) =>
+                      setworkPendingDetails({
+                        ...workPendingDetails,
+                        totalAmt: e.target.value,
+                      })
+                    }
                     id="username"
-                    defaultValue="10000"
+                    placeholder="Total Price"
                     autoComplete="off"
                     className="p-1 color-black"
                     required
                   />
-                </div>
-              </div>
-              <div className="mt-2">
-                <label className="info-person" htmlFor="username">
-                  Paid Amount
-                </label>
-                <div className="input-wrapper">
-                  <input
-                    type="text"
-                    id="username"
-                    defaultValue="10000"
-                    autoComplete="off"
-                    className="p-1 color-black"
-                    required
-                  />
-                </div>
-              </div>
-              <div className="pt-2">
-                <label className="info-person" htmlFor="cardNumber">
-                  Payment Method
-                </label>
-
-                <div className="language-selector pt-2">
-                  <div className="language-sec-wrap">
-                    <div className="language-name">
-                      <div className="language-name-wrap">
-                        <div>
-                          <p>By Cash</p>
-                        </div>
-                        <div className="form-check ps-0">
-                          <input
-                            className="form-check-input"
-                            type="radio"
-                            name="currency"
-                            defaultValue="USD"
-                            id="currency1"
-                            defaultChecked
-                          />
-                          <label htmlFor="currency2" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="language-sec-wrap pt-8">
-                    <div className="language-name">
-                      <div className="language-name-wrap">
-                        <div>
-                          <p>By UPI</p>
-                        </div>
-                        <div className="form-check ps-0">
-                          <input
-                            className="form-check-input"
-                            type="radio"
-                            name="currency"
-                            defaultValue="CAD"
-                            id="currency2"
-                          />
-                          <label htmlFor="currency2" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
 
@@ -96,15 +75,64 @@ function WorkDataPage() {
                   <textarea
                     rows="4"
                     cols="50"
-                    placeholder="Write here..."
-                    class="custom-textarea"
+                    value={workPendingDetails?.note || ""}
+                    onChange={(e) =>
+                      setworkPendingDetails({
+                        ...workPendingDetails,
+                        note: e.target.value,
+                      })
+                    }
+                    placeholder="Notes"
+                    className="custom-textarea"
                     id="textarea"
                   ></textarea>
                 </div>
               </div>
+              {/* Image Upload Section */}
+              <div className="mt-2">
+                <label className="info-person">Upload Image</label>
+                <div className="input-wrapper">
+                  {/* Hidden file input */}
+                  <input
+                    type="file"
+                    id="imageUpload"
+                    accept="image/*" // Only allow image files
+                    onChange={handleImageChange}
+                    className="form-control"
+                    style={{ display: "none" }} // Hide the input field
+                    ref={fileInputRef} // Attach the ref to input
+                  />
+
+                  {/* Custom upload button */}
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    onClick={() => fileInputRef.current.click()} // Trigger the file input click
+                  >
+                    Upload Image
+                  </button>
+                </div>
+
+                {/* Display selected image preview */}
+                {selectedImage && (
+                  <div className="mt-2">
+                    <img
+                      src={URL.createObjectURL(selectedImage)}
+                      alt="Selected"
+                      style={{
+                        width: "100px",
+                        height: "100px",
+                        objectFit: "cover",
+                      }}
+                    />
+                  </div>
+                )}
+              </div>
             </div>
             <div className="sign-up-btn fixed">
-              <a href="/signature">Next</a>
+              <button type="button" onClick={handleSubmit}>
+                Next
+              </button>
             </div>
           </div>
         </div>

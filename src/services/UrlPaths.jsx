@@ -1,8 +1,9 @@
 export const BasePathUrl = "/";
 export const LoginPathUrl = "login";
 export const ClientsListPathUrl = "clients";
-export const ClientDetailsPathUrl = "client-details";
-export const WorkPagePathUrl = "work";
-export const SignaturePathUrl = "signature";
-export const WorkDataPathUrl = "work-datas";
-export const ReportsPathUrl = "reports";
+export const ClientDetailsPathUrl = "client-details/:id";
+export const WorkPagePathUrl = "work/:id";
+export const SignaturePathUrl = "signature/:id";
+export const WorkDataPathUrl = "work-datas/:id";
+export const ReportsPathUrl = "reports/:id";
+export const CashCustomerUrl = "cash-customer";
