@@ -168,7 +168,7 @@
 
 import React, { useEffect, useState } from "react";
 import Background from "../../components/common/Background";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import apiCall from "../../services/APICall";
 import {
   Page,
@@ -180,6 +180,7 @@ import {
 } from "@react-pdf/renderer";
 import { saveAs } from "file-saver";
 import TransactionPage from "./TransactionPage";
+import { getClientTypeLabel } from "../../utils/HelperFun";
 
 // Create styles for PDF document
 const styles = StyleSheet.create({
@@ -239,6 +240,7 @@ const InvoicePDF = ({ workDetails }) => (
 );
 
 function Reports() {
+  let navigate = useNavigate();
   const [bottomNav, setbottomNav] = useState(false);
   const { id } = useParams();
   const [workDetails, setWorkDetails] = useState(null);
@@ -273,6 +275,7 @@ function Reports() {
           <InvoicePDF workDetails={workDetails} />
         ).toBlob();
         saveAs(blob, `Invoice_${workDetails._id}.pdf`);
+        getWorkDetails();
       } else {
         console.error("Error creating invoice");
       }
@@ -288,14 +291,26 @@ function Reports() {
             <div className="account-created-wrap mt-24">
               <div className="account-top-sec">
                 <div className="account-img">
-                  <img
-                    src="/assets/images/invite-friend/friend1.png"
-                    alt="account-img"
-                  />
+                  {workDetails?.client?.dp && workDetails?.client?.dp !== "" ? (
+                    <img
+                      onError={(e) =>
+                        (e.target.src =
+                          "/assets/images/invite-friend/friend1.png")
+                      }
+                      src={workDetails?.client?.dp}
+                      alt="friend-img"
+                    />
+                  ) : (
+                    <img
+                      src="/assets/images/invite-friend/friend1.png"
+                      alt="friend-img"
+                    />
+                  )}
                 </div>
                 <div className="account-name">
-                  <h3>Manoj</h3>
-                  <p>Kollam</p>
+                  <h3>{workDetails?.client?.name}</h3>
+                  <p>{workDetails?.client?.contact}</p>
+                  <p>{getClientTypeLabel(workDetails?.client?.type)}</p>
                 </div>
               </div>
               <div className="account-bottom-sec mt-24">

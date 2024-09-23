@@ -107,12 +107,12 @@ function SignaturePage() {
     const response = await apiCall(
       "post",
       "/upload",
-      { image: file },
+      { files: file },
       null,
       true
     );
     if (response?.status) {
-      console.log("THE RESPONSE", response);
+      showToast("signature saved successfully", true);
     }
   };
 

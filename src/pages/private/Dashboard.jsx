@@ -62,14 +62,14 @@ function Dashboard() {
                       <div className="delivery-bottom">
                         <div className="cart-title">
                           <h3 className="text-start pt-12">
-                            {work.client.contactName} (Client)
+                            {work?.client?.name} (Client)
                           </h3>
                           <div className="checkout-no pt-8">
-                            <a href={`tel:${work.client.contact}`}>
-                              {work.client.contact}
+                            <a href={`tel:${work?.client?.contact}`}>
+                              {work?.client?.contact}
                             </a>
                           </div>
-                          <p className="mt-8">Status: {work.status}</p>
+                          <p className="mt-8">Status: {work?.status}</p>
                         </div>
                       </div>
                     </div>

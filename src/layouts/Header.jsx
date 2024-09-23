@@ -15,7 +15,7 @@ function Header() {
 
   const logout = () => {
     localStorage.clear();
-    window.location.clear();
+    window.location.href = "/login";
   };
   return (
     <>
