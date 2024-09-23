@@ -12,6 +12,11 @@ function Header() {
   const [heading, setHeading] = useState(
     capitalizeWords(window.location.pathname)
   );
+
+  const logout = () => {
+    localStorage.clear();
+    window.location.clear();
+  };
   return (
     <>
       <header id="top-header">
@@ -27,7 +32,13 @@ function Header() {
             <p className>{"ZCP"}</p>
           </div>
           <div className="home-setting">
-            <a href="/login">
+            <a
+              onClick={(e) => {
+                e.preventDefault();
+                logout();
+              }}
+              href="/login"
+            >
               <img
                 style={{ height: "20px" }}
                 src="/assets/svg/logout.svg"

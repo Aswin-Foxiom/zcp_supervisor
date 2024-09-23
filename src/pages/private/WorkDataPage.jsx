@@ -4,9 +4,10 @@ import { useNavigate, useParams } from "react-router-dom";
 import apiCall from "../../services/APICall";
 import { showToast } from "../../utils/Toast";
 import axios from "axios";
+import { baseUrl } from "../../services/Urls";
 
 function WorkDataPage() {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImage, setSelectedImage] = useState([]);
   const { id } = useParams();
   const fileInputRef = useRef(null);
   let navigate = useNavigate();
@@ -15,25 +16,54 @@ function WorkDataPage() {
     note: null,
   });
 
-  const handlePaymentMethodChange = (event) => {
-    setworkPendingDetails({
-      ...workPendingDetails,
-      method: event.target.value, // Update the method value
-    });
-  };
-
   const handleSubmit = async () => {
-    const response = await apiCall("put", `/works/${id}`, workPendingDetails);
-    if (response?.status) {
-      showToast("services List Updated ", true);
-      return navigate(`/signature/${id}`);
+    if (!workPendingDetails?.totalAmt) {
+      showToast("Please enter a total amount", false);
+      return;
+    } else {
+      workPendingDetails.attachments = selectedImage;
+      const response = await apiCall("put", `/works/${id}`, workPendingDetails);
+      if (response?.status) {
+        showToast("services List Updated ", true);
+        return navigate(`/signature/${id}`);
+      }
     }
   };
 
   // Handle image selection
-  const handleImageChange = (event) => {
-    // axios.post();
-    setSelectedImage(event.target.files[0]); // Store the selected image file
+  const handleImageChange = async (event) => {
+    console.log(event);
+    const file = event.target.files[0];
+    // setSelectedImage(file); // Store the selected image file
+
+    if (!file) return;
+
+    // Create FormData object and append the selected image
+    const formData = new FormData();
+    formData.append("files", file);
+
+    try {
+      // Send POST request using Axios
+      const response = await axios.post(`${baseUrl}/upload`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data", // Required for file uploads
+          access: "supervisor",
+          Authorization: "Bearer " + localStorage.getItem("token"),
+        },
+      });
+
+      // Handle success response
+      if (response.status === 200) {
+        setSelectedImage((prevImages) => [
+          ...prevImages,
+          response?.data?.data[0],
+        ]);
+      }
+    } catch (error) {
+      // Handle error response
+
+      alert("Failed to upload image. Please try again.");
+    }
   };
 
   return (
@@ -88,6 +118,7 @@ function WorkDataPage() {
                   ></textarea>
                 </div>
               </div>
+
               {/* Image Upload Section */}
               <div className="mt-2">
                 <label className="info-person">Upload Image</label>
@@ -95,36 +126,42 @@ function WorkDataPage() {
                   {/* Hidden file input */}
                   <input
                     type="file"
-                    id="imageUpload"
-                    accept="image/*" // Only allow image files
+                    id="fileUpload"
+                    accept="image/*"
                     onChange={handleImageChange}
-                    className="form-control"
-                    style={{ display: "none" }} // Hide the input field
-                    ref={fileInputRef} // Attach the ref to input
+                    className="file-input" // Class for hidden file input
+                    style={{ display: "none" }} // Hide the actual input
                   />
 
                   {/* Custom upload button */}
                   <button
                     type="button"
-                    className="btn btn-primary"
-                    onClick={() => fileInputRef.current.click()} // Trigger the file input click
+                    className="custom-upload-btn"
+                    onClick={() =>
+                      document.getElementById("fileUpload").click()
+                    } // Trigger hidden input click
                   >
                     Upload Image
                   </button>
                 </div>
 
                 {/* Display selected image preview */}
-                {selectedImage && (
+                {selectedImage.length > 0 && (
                   <div className="mt-2">
-                    <img
-                      src={URL.createObjectURL(selectedImage)}
-                      alt="Selected"
-                      style={{
-                        width: "100px",
-                        height: "100px",
-                        objectFit: "cover",
-                      }}
-                    />
+                    {selectedImage.map((image, index) => (
+                      <div key={index} className="image-preview">
+                        <img
+                          src={`${baseUrl}/${image}`}
+                          alt={`Selected ${index + 1}`}
+                          style={{
+                            width: "100px",
+                            height: "100px",
+                            objectFit: "cover",
+                            marginRight: "10px", // Optional: adds spacing between images
+                          }}
+                        />
+                      </div>
+                    ))}
                   </div>
                 )}
               </div>

@@ -366,7 +366,14 @@ function Reports() {
           </button>
         )}
 
-        <button type="button" href="/clients">
+        <button
+          type="button"
+          onClick={() => {
+            localStorage.removeItem("workId");
+            localStorage.removeItem("clientId");
+            navigate("/clients");
+          }}
+        >
           Start New Work
         </button>
       </div>

@@ -31,8 +31,8 @@ function LoginPage() {
       setUser(data?.profile);
       localStorage.setItem("token", data?.token);
       showToast("Succesfully logged in", true);
-      seturlPath("/clients");
-      return navigate("/clients");
+      seturlPath("/");
+      return navigate("/");
     }
   };
 

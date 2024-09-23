@@ -5122,3 +5122,23 @@ div#ui-datepicker-div {
 		transform: rotate(360deg);
 	}
 }
+
+
+.custom-upload-btn {
+	background-color: #007bff;
+	color: white;
+	padding: 10px 20px;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 16px;
+}
+
+.custom-upload-btn:hover {
+	background-color: #0056b3;
+}
+
+.file-input {
+	display: none;
+	/* Keep the file input hidden */
+}
