@@ -35,7 +35,13 @@ function Dashboard() {
       <div classname="homecreen1-content">
         <div className="container position-relative">
           <div className="main-content-wrap pt-24 ">
-            <h2>Ongoing Works</h2>
+            <label
+              className="info-person"
+              style={{ fontSize: "20px" }}
+              htmlFor="serviceType"
+            >
+              Pending Works
+            </label>
             {pendingWorks?.length ? (
               <>
                 {pendingWorks?.map((work, key) => (
@@ -77,7 +83,9 @@ function Dashboard() {
                 ))}
               </>
             ) : (
-              <h2> No Pending Works </h2>
+              <div className="block-footer" style={{ marginTop: "50px" }}>
+                <p style={{ color: "red" }}>You Have No Pending Works.</p>
+              </div>
             )}
             <div className="single-clothes-bottom container">
               <div className="sign-up-btn">

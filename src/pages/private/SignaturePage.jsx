@@ -50,7 +50,7 @@
 
 // export default SignaturePage;
 
-import React, { useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import Background from "../../components/common/Background";
 import { FaSave, FaEraser } from "react-icons/fa"; // Import icons for save and clear
@@ -63,10 +63,23 @@ function SignaturePage() {
   let navigate = useNavigate();
   const clientSignatureRef = useRef(null);
   const supervisorSignatureRef = useRef(null);
+  const [workDetails, setworkDetails] = useState(null);
 
   // Clear the signature pad
   const clearSignature = (ref) => {
     ref.current.clear();
+  };
+
+  useEffect(() => {
+    getWorkDetails();
+  }, []);
+
+  const getWorkDetails = async () => {
+    const response = await apiCall("get", `/works/${id}`);
+    if (response?.status) {
+      console.log("THE WORK DETAILS", response?.data);
+      setworkDetails(response?.data ?? null);
+    }
   };
 
   // Function to convert base64 to a Blob
@@ -112,7 +125,30 @@ function SignaturePage() {
       true
     );
     if (response?.status) {
+      console.log(response?.data[0]);
       showToast("signature saved successfully", true);
+      updateSignature(response?.data[0], signerType);
+    }
+  };
+
+  const updateSignature = async (signature, signerType) => {
+    var response = null;
+    if (signerType === "Client") {
+      response = await apiCall("put", `/clients/${workDetails?.client?._id}`, {
+        signature: signature,
+      });
+    }
+    if (signerType === "Supervisor") {
+      response = await apiCall(
+        "put",
+        `/supervisor/${workDetails?.staff?._id}`,
+        {
+          signature: signature,
+        }
+      );
+    }
+    if (response?.status) {
+      console.log("Signature updated");
     }
   };
 

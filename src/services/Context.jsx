@@ -15,10 +15,9 @@ const Context = ({ children }) => {
 
   useEffect(() => {
     if (User) {
-      console.log("THE USER", User);
       getProfile();
     }
-  }, []);
+  }, [User]);
 
   const getProfile = async () => {
     if (User) {

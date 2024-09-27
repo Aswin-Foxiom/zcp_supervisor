@@ -182,6 +182,7 @@ import { useNavigate } from "react-router-dom";
 import apiCall from "../../services/APICall";
 import useFetchData from "../../services/UseQuery";
 import { getClientTypeLabel } from "../../utils/HelperFun";
+import { baseUrl } from "../../services/Urls";
 
 function ClientsList() {
   const [page, setPage] = useState(1); // Page state
@@ -306,16 +307,17 @@ function ClientsList() {
                       {value?.dp && value?.dp !== "" ? (
                         <img
                           onError={(e) =>
-                            (e.target.src =
-                              "/assets/images/invite-friend/friend1.png")
+                            (e.target.src = "/assets/images/no-image.jpg")
                           }
-                          src={value?.dp}
+                          style={{ height: "64px", width: "64px" }}
+                          src={`${baseUrl}/${value?.dp}`}
                           alt="friend-img"
                         />
                       ) : (
                         <img
-                          src="/assets/images/invite-friend/friend1.png"
+                          src="/assets/images/no-image.jpg"
                           alt="friend-img"
+                          style={{ height: "64px", width: "64px" }}
                         />
                       )}
                     </div>

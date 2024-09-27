@@ -294,15 +294,16 @@ function Reports() {
                   {workDetails?.client?.dp && workDetails?.client?.dp !== "" ? (
                     <img
                       onError={(e) =>
-                        (e.target.src =
-                          "/assets/images/invite-friend/friend1.png")
+                        (e.target.src = "/assets/images/no-image.jpg")
                       }
-                      src={workDetails?.client?.dp}
+                      style={{ height: "64px", width: "64px" }}
+                      src={`${baseUrl}/${workDetails?.client?.dp}`}
                       alt="friend-img"
                     />
                   ) : (
                     <img
-                      src="/assets/images/invite-friend/friend1.png"
+                      src="/assets/images/no-image.jpg"
+                      style={{ height: "64px", width: "64px" }}
                       alt="friend-img"
                     />
                   )}
@@ -313,50 +314,62 @@ function Reports() {
                   <p>{getClientTypeLabel(workDetails?.client?.type)}</p>
                 </div>
               </div>
-              <div className="account-bottom-sec mt-24">
-                <a href="#">
-                  <div className="send-money-contact-tab">
-                    <div className="setting-icon red-bg-opacity">
-                      <img
-                        src="/assets/images/profile/account-icon1.svg"
-                        alt="account-icon"
-                      />
-                    </div>
-                    <div onClick={downloadInvoice} className="setting-title">
-                      <h3>Generate & Share Invoice</h3>
-                    </div>
-                    <div className="contact-star">
-                      <div className="star-favourite">
+              {workDetails?.totalAmt ? (
+                <div className="account-bottom-sec mt-24">
+                  <a href="#">
+                    <div className="send-money-contact-tab">
+                      <div className="setting-icon red-bg-opacity">
                         <img
-                          src="/assets/svg/right-arrow.svg"
-                          alt="edit-icon"
+                          src="/assets/images/profile/account-icon1.svg"
+                          alt="account-icon"
                         />
                       </div>
-                    </div>
-                  </div>
-                </a>
-                <a href="#">
-                  <div className="send-money-contact-tab mt-12">
-                    <div className="setting-icon red-bg-opacity">
-                      <img
-                        src="/assets/images/profile/account-icon2.svg"
-                        alt="account-icon"
-                      />
-                    </div>
-                    <div className="setting-title">
-                      <h3>Generate & Share Reports</h3>
-                    </div>
-                    <div className="contact-star">
-                      <div className="star-favourite">
-                        <img
-                          src="/assets/svg/right-arrow.svg"
-                          alt="edit-icon"
-                        />
+                      <div onClick={downloadInvoice} className="setting-title">
+                        <h3>Generate & Share Invoice</h3>
+                      </div>
+                      <div className="contact-star">
+                        <div className="star-favourite">
+                          <img
+                            src="/assets/svg/right-arrow.svg"
+                            alt="edit-icon"
+                          />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </a>
-              </div>
+                  </a>
+                  <a href="#">
+                    <div className="send-money-contact-tab mt-12">
+                      <div className="setting-icon red-bg-opacity">
+                        <img
+                          src="/assets/images/profile/account-icon2.svg"
+                          alt="account-icon"
+                        />
+                      </div>
+                      <div className="setting-title">
+                        <h3>Generate & Share Reports</h3>
+                      </div>
+                      <div className="contact-star">
+                        <div className="star-favourite">
+                          <img
+                            src="/assets/svg/right-arrow.svg"
+                            alt="edit-icon"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </a>
+                </div>
+              ) : (
+                <div className="block-footer" style={{ marginTop: "50px" }}>
+                  <p style={{ color: "red" }}>
+                    You cannot generate invoices or share reports because the
+                    total amount has not been added to the work.
+                  </p>
+                  <p style={{ color: "red" }}>
+                    Please contact the admin to update the total amount of work.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

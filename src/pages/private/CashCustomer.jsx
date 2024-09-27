@@ -18,6 +18,8 @@ function CashCustomer() {
     road: "",
     block: "",
     totalAmt: "",
+    serviceType: "pest", // New field for service type
+    paymentMethod: "cash", // New field for payment method
   });
 
   // Handle input changes for text fields
@@ -34,14 +36,14 @@ function CashCustomer() {
     cashMemoDetails.staff = Profile?._id;
     const response = await apiCall("post", `/cash-customers`, cashMemoDetails);
     if (response?.status) {
-      showToast("Cash Memo created successfully!", true);
+      showToast("Cash Customer created successfully!", true);
       navigate(`/clients`); // Redirect after successful submission
     } else {
-      showToast("Failed to create Cash Memo", false);
+      showToast("Failed to create Cash Customer", false);
     }
   };
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "150vh" }}>
       <section id="add-new-card" className="background1">
         <div className="onboarding-bg-img1" />
         <Background />
@@ -64,6 +66,7 @@ function CashCustomer() {
                     value={cashMemoDetails.name}
                     onChange={handleInputChange}
                     className="p-1 color-black"
+                    placeholder="Name"
                     required
                   />
                 </div>
@@ -81,6 +84,7 @@ function CashCustomer() {
                     value={cashMemoDetails.contact}
                     onChange={handleInputChange}
                     className="p-1 color-black"
+                    placeholder="Contact"
                     required
                   />
                 </div>
@@ -97,6 +101,7 @@ function CashCustomer() {
                     name="flat"
                     value={cashMemoDetails.flat}
                     onChange={handleInputChange}
+                    placeholder="Flat"
                     className="p-1 color-black"
                   />
                 </div>
@@ -113,6 +118,7 @@ function CashCustomer() {
                     name="building"
                     value={cashMemoDetails.building}
                     onChange={handleInputChange}
+                    placeholder="Building"
                     className="p-1 color-black"
                   />
                 </div>
@@ -129,6 +135,7 @@ function CashCustomer() {
                     name="road"
                     value={cashMemoDetails.road}
                     onChange={handleInputChange}
+                    placeholder="Road"
                     className="p-1 color-black"
                   />
                 </div>
@@ -145,6 +152,7 @@ function CashCustomer() {
                     name="block"
                     value={cashMemoDetails.block}
                     onChange={handleInputChange}
+                    placeholder="Block"
                     className="p-1 color-black"
                   />
                 </div>
@@ -161,9 +169,216 @@ function CashCustomer() {
                     name="totalAmt"
                     value={cashMemoDetails.totalAmt}
                     onChange={handleInputChange}
+                    placeholder="Total Amount"
                     className="p-1 color-black"
                     required
                   />
+                </div>
+              </div>
+
+              {/* Service Type Radio Buttons */}
+              {/* <div className="mt-2">
+                <label className="info-person" htmlFor="serviceType">
+                  Service Type
+                </label>
+                <div className="input-wrapper">
+                  <div>
+                    <input
+                      type="radio"
+                      name="serviceType"
+                      value="Pest"
+                      checked={cashMemoDetails.serviceType === "Pest"}
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="pest">Pest</label>
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="serviceType"
+                      value="Cleaning"
+                      checked={cashMemoDetails.serviceType === "Cleaning"}
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="cleaning">Cleaning</label>
+                  </div>
+                </div>
+              </div> */}
+
+              {/* Payment Method Radio Buttons */}
+              {/* <div className="mt-2">
+                <label className="info-person" htmlFor="paymentMethod">
+                  Payment Method
+                </label>
+                <div className="input-wrapper">
+                  <div>
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="Cash"
+                      checked={cashMemoDetails.paymentMethod === "Cash"}
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="cash">Cash</label>
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="BenefitPay"
+                      checked={cashMemoDetails.paymentMethod === "BenefitPay"}
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="benefitpay">BenefitPay</label>
+                  </div>
+                  <div>
+                    <input
+                      type="radio"
+                      name="paymentMethod"
+                      value="Not Paid"
+                      checked={cashMemoDetails.paymentMethod === "Not Paid"}
+                      onChange={handleInputChange}
+                    />
+                    <label htmlFor="not-paid">Not Paid</label>
+                  </div>
+                </div>
+              </div> */}
+
+              {/* Service Type Radio Buttons */}
+              <div className="mt-2">
+                <label className="info-person" htmlFor="serviceType">
+                  Service Type
+                </label>
+                <div className="language-selector pt-2">
+                  <div className="row">
+                    <div className="col-6">
+                      <div className="language-sec-wrap">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Pest</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType" // Use name="serviceType"
+                                value="pest" // Set value for service type "pest"
+                                checked={
+                                  cashMemoDetails?.serviceType === "pest"
+                                }
+                                onChange={handleInputChange} // Use handleInputChange
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="language-sec-wrap ">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Cleaning</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType" // Use name="serviceType"
+                                value="cleaning" // Set value for service type "cleaning"
+                                checked={
+                                  cashMemoDetails?.serviceType === "cleaning"
+                                }
+                                onChange={handleInputChange} // Use handleInputChange
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Payment Method Radio Buttons */}
+              <div className="mt-2">
+                <label className="info-person" htmlFor="paymentMethod">
+                  Payment Method
+                </label>
+                <div className="language-selector pt-2">
+                  <div className="row">
+                    <div className="col-6">
+                      <div className="language-sec-wrap">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Cash</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="paymentMethod" // Use name="paymentMethod"
+                                value="cash" // Set value for payment method "cash"
+                                checked={
+                                  cashMemoDetails?.paymentMethod === "cash"
+                                }
+                                onChange={handleInputChange} // Use handleInputChange
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="language-sec-wrap ">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Benefit Pay</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="paymentMethod" // Use name="paymentMethod"
+                                value="benefitPay" // Set value for payment method "benefitPay"
+                                checked={
+                                  cashMemoDetails?.paymentMethod ===
+                                  "benefitPay"
+                                }
+                                onChange={handleInputChange} // Use handleInputChange
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="col-6">
+                      <div className="language-sec-wrap pt-3">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Not Paid</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="paymentMethod" // Use name="paymentMethod"
+                                value="notpaid" // Set value for payment method "notpaid"
+                                checked={
+                                  cashMemoDetails?.paymentMethod === "notpaid"
+                                }
+                                onChange={handleInputChange} // Use handleInputChange
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

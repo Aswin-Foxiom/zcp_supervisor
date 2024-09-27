@@ -14,19 +14,16 @@ function WorkDataPage() {
   const [workPendingDetails, setworkPendingDetails] = useState({
     totalAmt: null,
     note: null,
+    typeOfService: "cash",
   });
 
   const handleSubmit = async () => {
-    if (!workPendingDetails?.totalAmt) {
-      showToast("Please enter a total amount", false);
-      return;
-    } else {
-      workPendingDetails.attachments = selectedImage;
-      const response = await apiCall("put", `/works/${id}`, workPendingDetails);
-      if (response?.status) {
-        showToast("services List Updated ", true);
-        return navigate(`/signature/${id}`);
-      }
+    console.log(workPendingDetails);
+    workPendingDetails.attachments = selectedImage;
+    const response = await apiCall("put", `/works/${id}`, workPendingDetails);
+    if (response?.status) {
+      showToast("services List Updated ", true);
+      return navigate(`/signature/${id}`);
     }
   };
 
@@ -67,13 +64,139 @@ function WorkDataPage() {
   };
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "120vh" }}>
       <section id="add-new-card" className="background1">
         <div className="onboarding-bg-img1" />
         <Background />
         <div className="container position-relative">
           <div className="main-content-wrap ">
             <div className="new_password_input" id="new-card-inputs">
+              <div className="mt-2">
+                <label className="info-person" htmlFor="serviceType">
+                  Type of service
+                </label>
+                <div className="language-selector pt-2">
+                  <div className="row">
+                    {/* First column (Cash and Contact) */}
+                    <div className="col-6">
+                      <div className="language-sec-wrap">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Cash</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType"
+                                value="cash"
+                                checked={
+                                  workPendingDetails?.typeOfService === "cash"
+                                }
+                                onChange={(e) =>
+                                  setworkPendingDetails({
+                                    ...workPendingDetails,
+                                    typeOfService: "cash",
+                                  })
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="language-sec-wrap pt-4">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Contact</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType"
+                                value="contact"
+                                checked={
+                                  workPendingDetails?.typeOfService ===
+                                  "contact"
+                                }
+                                onChange={(e) =>
+                                  setworkPendingDetails({
+                                    ...workPendingDetails,
+                                    typeOfService: "contact",
+                                  })
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Second column (One Time and Follow Up) */}
+                    <div className="col-6">
+                      <div className="language-sec-wrap">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>One Time</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType"
+                                value="onetime"
+                                checked={
+                                  workPendingDetails?.typeOfService ===
+                                  "onetime"
+                                }
+                                onChange={(e) =>
+                                  setworkPendingDetails({
+                                    ...workPendingDetails,
+                                    typeOfService: "onetime",
+                                  })
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="language-sec-wrap pt-4">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Follow up</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType"
+                                value="followup"
+                                checked={
+                                  workPendingDetails?.typeOfService ===
+                                  "followup"
+                                }
+                                onChange={(e) =>
+                                  setworkPendingDetails({
+                                    ...workPendingDetails,
+                                    typeOfService: "followup",
+                                  })
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <div className="mt-2">
                 <label className="info-person" htmlFor="username">
                   Total Price
@@ -148,20 +271,23 @@ function WorkDataPage() {
                 {/* Display selected image preview */}
                 {selectedImage.length > 0 && (
                   <div className="mt-2">
-                    {selectedImage.map((image, index) => (
-                      <div key={index} className="image-preview">
-                        <img
-                          src={`${baseUrl}/${image}`}
-                          alt={`Selected ${index + 1}`}
-                          style={{
-                            width: "100px",
-                            height: "100px",
-                            objectFit: "cover",
-                            marginRight: "10px", // Optional: adds spacing between images
-                          }}
-                        />
-                      </div>
-                    ))}
+                    <div className="image-preview-container">
+                      {selectedImage.map((image, index) => (
+                        <div key={index} className="image-preview">
+                          <img
+                            src={`${baseUrl}/${image}`}
+                            alt={`Selected ${index + 1}`}
+                            style={{
+                              width: "100px",
+                              borderRadius: "10px",
+                              height: "100px",
+                              objectFit: "cover",
+                              marginRight: "10px", // Optional: adds spacing between images
+                            }}
+                          />
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 )}
               </div>
