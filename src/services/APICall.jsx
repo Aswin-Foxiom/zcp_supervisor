@@ -11,10 +11,10 @@ const apiCall = async (
   is_formdata
 ) => {
   try {
-    var endpoint = baseUrl + endpoint;
+    var endUrl = baseUrl + endpoint;
     const response = await axios({
       method: method,
-      url: endpoint,
+      url: endUrl,
       data: method !== "get" ? data : null, // Only send data for non-GET requests
       params: method === "get" ? params : null, // Only send params for GET requests
       headers: {
