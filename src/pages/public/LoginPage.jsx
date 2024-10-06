@@ -49,43 +49,6 @@ function LoginPage() {
                   Sign in to access your account
                 </p>
               </div>
-              {/* <form className="sign-up-form pt-24">
-                <div>
-                  <label htmlFor="email" className="name-txt">
-                    Username
-                  </label>
-                  <div className="input-wrapper">
-                    <span className="icon me-0">
-                      <img src="/assets/svg/email.svg" alt="email-icon" />
-                    </span>
-                    <input
-                      type="email"
-                      id="email"
-                      placeholder="Username"
-                      autoComplete="off"
-                      className="p-0"
-                    />
-                  </div>
-                </div>
-                <div className="pt-12">
-                  <label htmlFor="password" className="name-txt">
-                    Password
-                  </label>
-                  <div className="input-wrapper">
-                    <span className="icon me-0">
-                      <img src="/assets/svg/password.svg" alt="password-icon" />
-                    </span>
-                    <input
-                      type="password"
-                      id="password"
-                      placeholder="Password"
-                      autoComplete="off"
-                      className="p-0"
-                    />
-                    <i className="fas fa-eye-slash" id="eye" />
-                  </div>
-                </div>
-              </form> */}
               <Formik
                 initialValues={formValues.initialValues}
                 validationSchema={formValues.validationSchema}
@@ -110,7 +73,16 @@ function LoginPage() {
                     />
 
                     <div className="sign-up-btn  pt-24">
-                      <button type="submit">Submit</button>
+                      {loading ? (
+                        <button
+                          type="submit"
+                          style={{ backgroundColor: "black" }}
+                        >
+                          Loading ...
+                        </button>
+                      ) : (
+                        <button type="submit">Login</button>
+                      )}
                     </div>
                   </Form>
                 )}

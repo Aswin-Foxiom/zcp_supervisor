@@ -2,12 +2,12 @@ import React from "react";
 
 function Loader() {
   return (
-    <div className="preloader">
-      <div className="opposites">
-        <div className="opposites bl" />
-        <div className="opposites tr" />
-        <div className="opposites br" />
-        <div className="opposites tl" />
+    <div class="preloader">
+      <div class="opposites">
+        <div class="opposites bl"></div>
+        <div class="opposites tr"></div>
+        <div class="opposites br"></div>
+        <div class="opposites tl"></div>
       </div>
     </div>
   );

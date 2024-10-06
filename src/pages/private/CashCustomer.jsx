@@ -7,6 +7,7 @@ import Background from "../../components/common/Background";
 
 function CashCustomer() {
   const { Profile } = useContext(ContextDatas);
+  const [loading, setloading] = useState(false);
   let navigate = useNavigate();
 
   // State for holding form data
@@ -33,8 +34,14 @@ function CashCustomer() {
 
   // Submit the form data to the server
   const handleSubmit = async () => {
+    if (!cashMemoDetails.name || !cashMemoDetails.contact) {
+      showToast("Name and Contact are required fields", false);
+      return;
+    }
     cashMemoDetails.staff = Profile?._id;
+    setloading(true);
     const response = await apiCall("post", `/cash-customers`, cashMemoDetails);
+    setloading(false);
     if (response?.status) {
       showToast("Cash Customer created successfully!", true);
       navigate(`/clients`); // Redirect after successful submission
@@ -385,9 +392,15 @@ function CashCustomer() {
 
             {/* Submit Button */}
             <div className="sign-up-btn fixed">
-              <button type="button" onClick={handleSubmit}>
-                Submit
-              </button>
+              {loading ? (
+                <button type="submit" style={{ backgroundColor: "black" }}>
+                  Loading ...
+                </button>
+              ) : (
+                <button type="button" onClick={handleSubmit}>
+                  Submit
+                </button>
+              )}
             </div>
           </div>
         </div>

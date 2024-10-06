@@ -1,55 +1,3 @@
-// import React from "react";
-// import Background from "../../components/common/Background";
-
-// function SignaturePage() {
-//   return (
-//     <div style={{ height: "100vh" }}>
-//       <section id="feedback-main" className="background1  ">
-//         <Background />
-//         <div className="container position-relative">
-//           <div className="main-content-wrap pt-4 ">
-//             <div className="feedback-content">
-//               <form className="feedback-form">
-//                 <div className="mt-24">
-//                   <label htmlFor="textarea" className="custom-lbl-feedback">
-//                     Client Signature
-//                   </label>
-//                   <textarea
-//                     rows={4}
-//                     cols={50}
-//                     placeholder="Sign Here..."
-//                     className="custom-textarea  mt-8"
-//                     id="textarea"
-//                     defaultValue={""}
-//                   />
-//                 </div>
-//                 <div className="mt-24">
-//                   <label htmlFor="textarea" className="custom-lbl-feedback">
-//                     Supervisor Signature
-//                   </label>
-//                   <textarea
-//                     rows={4}
-//                     cols={50}
-//                     placeholder="Sign Here..."
-//                     className="custom-textarea  mt-8"
-//                     id="textarea"
-//                     defaultValue={""}
-//                   />
-//                 </div>
-//               </form>
-//               <div className="sign-up-btn fixed">
-//                 <button type="button">Next</button>
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//     </div>
-//   );
-// }
-
-// export default SignaturePage;
-
 import React, { useEffect, useRef, useState } from "react";
 import SignatureCanvas from "react-signature-canvas";
 import Background from "../../components/common/Background";
@@ -57,10 +5,13 @@ import { FaSave, FaEraser } from "react-icons/fa"; // Import icons for save and 
 import { showToast } from "../../utils/Toast";
 import apiCall from "../../services/APICall";
 import { useNavigate, useParams } from "react-router-dom";
+import ConfirmModal from "../../components/common/ConfirmModal";
 
 function SignaturePage() {
   const { id } = useParams();
   let navigate = useNavigate();
+  const [confirm, setconfirm] = useState(false);
+  const [loading, setloading] = useState(false);
   const clientSignatureRef = useRef(null);
   const supervisorSignatureRef = useRef(null);
   const [workDetails, setworkDetails] = useState(null);
@@ -156,7 +107,9 @@ function SignaturePage() {
     const body = {
       status: "completed",
     };
+    setloading(true);
     const response = await apiCall("put", `/works/${id}`, body);
+    setloading(false);
     if (response?.status) {
       showToast("Work Details Updated", true);
       return navigate(`/reports/${id}`);
@@ -244,10 +197,28 @@ function SignaturePage() {
                   </div>
                 </div>
               </form>
+
+              <ConfirmModal
+                next={CompleteWork}
+                setVisible={() => setconfirm(false)}
+                visible={confirm}
+                message="Do You want to complete your work ?"
+              />
+
               <div className="sign-up-btn fixed">
-                <button type="button" onClick={CompleteWork}>
-                  Complete Work
-                </button>
+                {loading ? (
+                  <button type="submit" style={{ backgroundColor: "black" }}>
+                    Loading ...
+                  </button>
+                ) : (
+                  <button
+                    type="button"
+                    // onClick={handleSubmit}
+                    onClick={() => setconfirm(true)}
+                  >
+                    Next
+                  </button>
+                )}
               </div>
             </div>
           </div>

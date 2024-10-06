@@ -183,12 +183,13 @@ import apiCall from "../../services/APICall";
 import useFetchData from "../../services/UseQuery";
 import { getClientTypeLabel } from "../../utils/HelperFun";
 import { baseUrl } from "../../services/Urls";
+import Loader from "../../components/common/Loader";
 
 function ClientsList() {
   const [page, setPage] = useState(1); // Page state
   const [searchQuery, setSearchQuery] = useState(""); // Search query state
   const [debouncedQuery, setDebouncedQuery] = useState(""); // Debounced query state
-  const limit = 10; // Pagination limit
+  const limit = 100; // Pagination limit
   let navigate = useNavigate();
 
   // Function to fetch clients
@@ -242,11 +243,11 @@ function ClientsList() {
   }, [searchQuery]);
 
   if (clientsLoading || clientsFetching) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return (
-    <div style={{ height: "100vh" }}>
+    <div style={{ height: "auto", paddingBottom: "50px" }}>
       <section id="invite-friend-main" className="background1">
         <Background />
         <div className="container position-relative">
