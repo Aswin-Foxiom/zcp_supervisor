@@ -14,7 +14,7 @@ function ClientDetails() {
   const [loading, setloading] = useState(false);
   const [bottomNav, setbottomNav] = useState(false);
   const [memrDatas, setmemrDatas] = useState({
-    building: "",
+    building: "House Me",
     flat: "",
   });
   const { id } = useParams();
@@ -196,7 +196,7 @@ function ClientDetails() {
               <div className="main-content-wrap ">
                 <div className="new_password_input" id="new-card-inputs">
                   <div className="mt-2">
-                    <label className="info-person" htmlFor="username">
+                    {/* <label className="info-person" htmlFor="username">
                       Building
                     </label>
                     <div className="input-wrapper">
@@ -214,6 +214,72 @@ function ClientDetails() {
                         className="p-1 color-black"
                         required
                       />
+                    </div> */}
+
+                    <label className="info-person" htmlFor="cardNumber">
+                      Choose Customer
+                    </label>
+
+                    <div className="language-selector pt-2">
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="language-sec-wrap">
+                            <div className="language-name">
+                              <div className="language-name-wrap">
+                                <div>
+                                  <p>House Me</p>
+                                </div>
+                                <div className="form-check ps-0">
+                                  <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="custmerType"
+                                    defaultValue="USD"
+                                    value="House Me" // Set value for cash
+                                    id="custmerType1"
+                                    checked={memrDatas.building === "House Me"}
+                                    onChange={(e) =>
+                                      setmemrDatas({
+                                        ...memrDatas,
+                                        building: "House Me",
+                                      })
+                                    }
+                                  />
+                                  <label htmlFor="custmerType1" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6">
+                          <div className="language-sec-wrap">
+                            <div className="language-name">
+                              <div className="language-name-wrap">
+                                <div>
+                                  <p>Customer</p>
+                                </div>
+                                <div className="form-check ps-0">
+                                  <input
+                                    className="form-check-input"
+                                    type="radio"
+                                    name="custmerType"
+                                    value="Customer" // Set value for UPI
+                                    id="custmerType2"
+                                    checked={memrDatas.building === "Customer"}
+                                    onChange={(e) =>
+                                      setmemrDatas({
+                                        ...memrDatas,
+                                        building: "Customer",
+                                      })
+                                    }
+                                  />
+                                  <label htmlFor="custmerType2" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="mt-2">

@@ -7,3 +7,4 @@ export const SignaturePathUrl = "signature/:id";
 export const WorkDataPathUrl = "work-datas/:id";
 export const ReportsPathUrl = "reports/:id";
 export const CashCustomerUrl = "cash-customer";
+export const NotificationUrl = "notifications";

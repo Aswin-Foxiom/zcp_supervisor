@@ -181,6 +181,7 @@ import {
 import { saveAs } from "file-saver";
 import TransactionPage from "./TransactionPage";
 import { getClientTypeLabel } from "../../utils/HelperFun";
+import { showToast } from "../../utils/Toast";
 
 // Create styles for PDF document
 const styles = StyleSheet.create({
@@ -244,6 +245,7 @@ function Reports() {
   const [bottomNav, setbottomNav] = useState(false);
   const { id } = useParams();
   const [workDetails, setWorkDetails] = useState(null);
+  const [generateInvoiceLoading, setgenerateInvoiceLoading] = useState(false);
 
   useEffect(() => {
     getWorkDetails();
@@ -258,26 +260,33 @@ function Reports() {
   };
 
   const downloadInvoice = async () => {
-    if (workDetails) {
-      // Prepare API request body
-      const invoiceBody = {
-        client: workDetails.client._id, // Use the actual client ID
-        totalAmt: workDetails.totalAmt,
-        works: [workDetails._id], // Use the actual work ID
-      };
+    if (workDetails?.invoice) {
+      showToast("Invoice already Generaed", false);
+      return;
+    } else {
+      if (workDetails) {
+        // Prepare API request body
+        const invoiceBody = {
+          client: workDetails.client._id, // Use the actual client ID
+          totalAmt: workDetails.totalAmt,
+          works: [workDetails._id], // Use the actual work ID
+        };
 
-      // Make the API call to create the invoice
-      const invoiceResponse = await apiCall("post", "/invoices", invoiceBody);
+        // Make the API call to create the invoice
+        setgenerateInvoiceLoading(true);
+        const invoiceResponse = await apiCall("post", "/invoices", invoiceBody);
+        setgenerateInvoiceLoading(false);
 
-      if (invoiceResponse?.status) {
-        // If invoice creation is successful, generate and download the PDF
-        const blob = await pdf(
-          <InvoicePDF workDetails={workDetails} />
-        ).toBlob();
-        saveAs(blob, `Invoice_${workDetails._id}.pdf`);
-        getWorkDetails();
-      } else {
-        console.error("Error creating invoice");
+        if (invoiceResponse?.status) {
+          // If invoice creation is successful, generate and download the PDF
+          const blob = await pdf(
+            <InvoicePDF workDetails={workDetails} />
+          ).toBlob();
+          saveAs(blob, `Invoice_${workDetails?._id}.pdf`);
+          getWorkDetails();
+        } else {
+          console.error("Error creating invoice");
+        }
       }
     }
   };
@@ -315,29 +324,40 @@ function Reports() {
                 </div>
               </div>
               {workDetails?.totalAmt ? (
-                <div className="account-bottom-sec mt-24">
-                  <a href="#">
-                    <div className="send-money-contact-tab">
-                      <div className="setting-icon red-bg-opacity">
-                        <img
-                          src="/assets/images/profile/account-icon1.svg"
-                          alt="account-icon"
-                        />
-                      </div>
-                      <div onClick={downloadInvoice} className="setting-title">
-                        <h3>Generate & Share Invoice</h3>
-                      </div>
-                      <div className="contact-star">
-                        <div className="star-favourite">
+                generateInvoiceLoading ? (
+                  <div className="block-footer" style={{ marginTop: "50px" }}>
+                    <p style={{ color: "red" }}>Generating Your Invoice.</p>
+                  </div>
+                ) : (
+                  <div className="account-bottom-sec mt-24">
+                    <a
+                      href="#"
+                      onClick={(e) => {
+                        e.preventDefault();
+                        downloadInvoice();
+                      }}
+                    >
+                      <div className="send-money-contact-tab">
+                        <div className="setting-icon red-bg-opacity">
                           <img
-                            src="/assets/svg/right-arrow.svg"
-                            alt="edit-icon"
+                            src="/assets/images/profile/account-icon1.svg"
+                            alt="account-icon"
                           />
                         </div>
+                        <div className="setting-title">
+                          <h3>Generate & Share Invoice</h3>
+                        </div>
+                        <div className="contact-star">
+                          <div className="star-favourite">
+                            <img
+                              src="/assets/svg/right-arrow.svg"
+                              alt="edit-icon"
+                            />
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </a>
-                  <a href="#">
+                    </a>
+                    {/* <a href="#">
                     <div className="send-money-contact-tab mt-12">
                       <div className="setting-icon red-bg-opacity">
                         <img
@@ -357,8 +377,9 @@ function Reports() {
                         </div>
                       </div>
                     </div>
-                  </a>
-                </div>
+                  </a> */}
+                  </div>
+                )
               ) : (
                 <div className="block-footer" style={{ marginTop: "50px" }}>
                   <p style={{ color: "red" }}>

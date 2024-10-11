@@ -8,6 +8,7 @@ import { baseUrl } from "../../services/Urls";
 import ConfirmModal from "../../components/common/ConfirmModal";
 
 function WorkDataPage() {
+  const [imageLoading, setimageLoading] = useState(false);
   const [selectedImage, setSelectedImage] = useState([]);
   const { id } = useParams();
   const fileInputRef = useRef(null);
@@ -44,6 +45,7 @@ function WorkDataPage() {
 
     try {
       // Send POST request using Axios
+      setimageLoading(true);
       const response = await axios.post(`${baseUrl}/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data", // Required for file uploads
@@ -51,7 +53,7 @@ function WorkDataPage() {
           Authorization: "Bearer " + localStorage.getItem("token"),
         },
       });
-
+      setimageLoading(false);
       // Handle success response
       if (response.status === 200) {
         setSelectedImage((prevImages) => [
@@ -196,6 +198,36 @@ function WorkDataPage() {
                         </div>
                       </div>
                     </div>
+
+                    <div className="col-6 mt-2">
+                      <div className="language-sec-wrap">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Monthly</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType"
+                                value="monthly"
+                                checked={
+                                  workPendingDetails?.typeOfService ===
+                                  "monthly"
+                                }
+                                onChange={(e) =>
+                                  setworkPendingDetails({
+                                    ...workPendingDetails,
+                                    typeOfService: "monthly",
+                                  })
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -272,26 +304,35 @@ function WorkDataPage() {
                 </div>
 
                 {/* Display selected image preview */}
-                {selectedImage.length > 0 && (
-                  <div className="mt-2">
-                    <div className="image-preview-container">
-                      {selectedImage.map((image, index) => (
-                        <div key={index} className="image-preview">
-                          <img
-                            src={`${baseUrl}/${image}`}
-                            alt={`Selected ${index + 1}`}
-                            style={{
-                              width: "100px",
-                              borderRadius: "10px",
-                              height: "100px",
-                              objectFit: "cover",
-                              marginRight: "10px", // Optional: adds spacing between images
-                            }}
-                          />
-                        </div>
-                      ))}
-                    </div>
+
+                {imageLoading ? (
+                  <div className="block-footer" style={{ marginTop: "50px" }}>
+                    <p style={{ color: "red" }}>Uploading your image.</p>
                   </div>
+                ) : (
+                  <>
+                    {selectedImage.length > 0 && (
+                      <div className="mt-2">
+                        <div className="image-preview-container">
+                          {selectedImage.map((image, index) => (
+                            <div key={index} className="image-preview">
+                              <img
+                                src={`${baseUrl}/${image}`}
+                                alt={`Selected ${index + 1}`}
+                                style={{
+                                  width: "100px",
+                                  borderRadius: "10px",
+                                  height: "100px",
+                                  objectFit: "cover",
+                                  marginRight: "10px", // Optional: adds spacing between images
+                                }}
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </>
                 )}
               </div>
             </div>

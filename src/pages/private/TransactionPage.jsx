@@ -10,6 +10,7 @@ function TransactionPage({ invoiceId, show, setshow }) {
     paid: null,
     method: "cash",
   });
+  const [transactionLoading, settransactionLoading] = useState(false);
 
   const handlePaymentMethodChange = (event) => {
     setworkPendingDetails({
@@ -120,9 +121,15 @@ function TransactionPage({ invoiceId, show, setshow }) {
                 </div>
               </div>
               <div className="sign-up-btn fixed">
-                <button type="button" onClick={handleSubmit}>
-                  Save
-                </button>
+                {transactionLoading ? (
+                  <button type="submit" style={{ backgroundColor: "black" }}>
+                    Loading ...
+                  </button>
+                ) : (
+                  <button type="button" onClick={handleSubmit}>
+                    Save
+                  </button>
+                )}
               </div>
             </div>
           </div>

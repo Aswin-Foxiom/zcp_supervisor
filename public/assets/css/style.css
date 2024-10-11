@@ -5155,3 +5155,13 @@ div#ui-datepicker-div {
 	margin-bottom: 10px;
 	/* Adds spacing between rows */
 }
+
+@keyframes spin {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(360deg);
+	}
+}

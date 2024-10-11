@@ -8,6 +8,7 @@ import {
   ClientDetailsPathUrl,
   ClientsListPathUrl,
   LoginPathUrl,
+  NotificationUrl,
   ReportsPathUrl,
   SignaturePathUrl,
   WorkDataPathUrl,
@@ -23,6 +24,7 @@ import Reports from "./pages/private/Reports";
 import NotFound from "./pages/public/NotFound";
 import PrivateRoute from "./utils/PrivateRoute";
 import CashCustomer from "./pages/private/CashCustomer";
+import Notification from "./pages/private/Notification";
 
 function App() {
   return (
@@ -45,6 +47,7 @@ function App() {
           <Route path={SignaturePathUrl} element={<SignaturePage />} />
           <Route path={ReportsPathUrl} element={<Reports />} />
           <Route path={CashCustomerUrl} element={<CashCustomer />} />
+          <Route path={NotificationUrl} element={<Notification />} />
         </Route>
         <Route path="*" element={<NotFound />} />
       </Routes>

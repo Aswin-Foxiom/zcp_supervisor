@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Background from "../../components/common/Background";
 import { Form, Formik } from "formik";
 import AppInput from "../../components/input/AppInput";
@@ -13,6 +13,15 @@ function LoginPage() {
   let navigate = useNavigate();
   const { User, setUser, seturlPath } = useContext(ContextDatas);
   const [loading, setloading] = useState(false);
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      seturlPath("/");
+      return navigate("/");
+    }
+  }, []);
+
   const formValues = {
     initialValues: { username: "", password: "" },
     validationSchema: loginValidationSchema,

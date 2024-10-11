@@ -10,6 +10,7 @@ import ConfirmModal from "../../components/common/ConfirmModal";
 function SignaturePage() {
   const { id } = useParams();
   let navigate = useNavigate();
+  const [signatureLoading, setsignatureLoading] = useState(false);
   const [confirm, setconfirm] = useState(false);
   const [loading, setloading] = useState(false);
   const clientSignatureRef = useRef(null);
@@ -67,7 +68,7 @@ function SignaturePage() {
     const file = new File([blob], `${signerType}_signature.png`, {
       type: "image/png",
     });
-
+    setsignatureLoading(true);
     const response = await apiCall(
       "post",
       "/upload",
@@ -75,6 +76,8 @@ function SignaturePage() {
       null,
       true
     );
+    setsignatureLoading(false);
+
     if (response?.status) {
       console.log(response?.data[0]);
       showToast("signature saved successfully", true);
@@ -84,6 +87,7 @@ function SignaturePage() {
 
   const updateSignature = async (signature, signerType) => {
     var response = null;
+    setsignatureLoading(true);
     if (signerType === "Client") {
       response = await apiCall("put", `/clients/${workDetails?.client?._id}`, {
         signature: signature,
@@ -98,6 +102,7 @@ function SignaturePage() {
         }
       );
     }
+    setsignatureLoading(false);
     if (response?.status) {
       console.log("Signature updated");
     }
@@ -141,21 +146,32 @@ function SignaturePage() {
                     ref={clientSignatureRef}
                   />
                   <div className="mt-8" style={{ textAlign: "right" }}>
-                    <button
-                      type="button"
-                      onClick={() => clearSignature(clientSignatureRef)}
-                      style={{ marginRight: "20px" }}
-                    >
-                      <FaEraser size={24} title="Clear" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        saveSignatureAsImageFile(clientSignatureRef, "Client")
-                      }
-                    >
-                      <FaSave size={24} title="Save" />
-                    </button>
+                    {signatureLoading ? (
+                      <div className="block-footer" style={{ float: "right" }}>
+                        <p style={{ color: "red" }}>Saving Your Signature</p>
+                      </div>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => clearSignature(clientSignatureRef)}
+                          style={{ marginRight: "20px" }}
+                        >
+                          <FaEraser size={24} title="Clear" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            saveSignatureAsImageFile(
+                              clientSignatureRef,
+                              "Client"
+                            )
+                          }
+                        >
+                          <FaSave size={24} title="Save" />
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
 
@@ -176,24 +192,32 @@ function SignaturePage() {
                     ref={supervisorSignatureRef}
                   />
                   <div className="mt-8" style={{ textAlign: "right" }}>
-                    <button
-                      type="button"
-                      onClick={() => clearSignature(supervisorSignatureRef)}
-                      style={{ marginRight: "20px" }}
-                    >
-                      <FaEraser size={24} title="Clear" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() =>
-                        saveSignatureAsImageFile(
-                          supervisorSignatureRef,
-                          "Supervisor"
-                        )
-                      }
-                    >
-                      <FaSave size={24} title="Save" />
-                    </button>
+                    {signatureLoading ? (
+                      <div className="block-footer" style={{ float: "right" }}>
+                        <p style={{ color: "red" }}>Saving Your Signature</p>
+                      </div>
+                    ) : (
+                      <>
+                        <button
+                          type="button"
+                          onClick={() => clearSignature(supervisorSignatureRef)}
+                          style={{ marginRight: "20px" }}
+                        >
+                          <FaEraser size={24} title="Clear" />
+                        </button>
+                        <button
+                          type="button"
+                          onClick={() =>
+                            saveSignatureAsImageFile(
+                              supervisorSignatureRef,
+                              "Supervisor"
+                            )
+                          }
+                        >
+                          <FaSave size={24} title="Save" />
+                        </button>
+                      </>
+                    )}
                   </div>
                 </div>
               </form>
