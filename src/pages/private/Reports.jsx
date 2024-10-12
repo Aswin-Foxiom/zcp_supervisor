@@ -217,23 +217,23 @@ const styles = StyleSheet.create({
 // PDF Document Component
 const InvoicePDF = ({ workDetails }) => (
   <Document>
-    <Page size="A4" style={styles.page}>
-      <View style={styles.section}>
-        <Text style={styles.title}>Invoice</Text>
-        <View style={styles.clientInfo}>
-          <Text>Client: {workDetails.client.name}</Text>
-          <Text>Contact: {workDetails.client.contact}</Text>
+    <Page size="A4" style={styles?.page}>
+      <View style={styles?.section}>
+        <Text style={styles?.title}>Invoice</Text>
+        <View style={styles?.clientInfo}>
+          <Text>Client: {workDetails?.client?.name}</Text>
+          <Text>Contact: {workDetails?.client?.contact}</Text>
         </View>
-        <View style={styles.serviceList}>
+        <View style={styles?.serviceList}>
           <Text>Services:</Text>
-          {workDetails.services.map((service, index) => (
-            <Text key={service._id} style={styles.serviceItem}>
-              {index + 1}. {service.name} - {service.count}
+          {workDetails?.services.map((service, index) => (
+            <Text key={service?._id} style={styles?.serviceItem}>
+              {index + 1}. {service?.name} - {service?.count}
             </Text>
           ))}
         </View>
-        <Text style={styles.totalAmount}>
-          Total Amount: ${workDetails.totalAmt}
+        <Text style={styles?.totalAmount}>
+          Total Amount: ${workDetails?.totalAmt}
         </Text>
       </View>
     </Page>
@@ -254,8 +254,7 @@ function Reports() {
   const getWorkDetails = async () => {
     const response = await apiCall("get", `/works/${id}`);
     if (response?.status) {
-      setWorkDetails(response.data);
-      console.log("THE WORK", response?.data);
+      setWorkDetails(response?.data);
     }
   };
 
@@ -267,8 +266,8 @@ function Reports() {
       if (workDetails) {
         // Prepare API request body
         const invoiceBody = {
-          client: workDetails.client._id, // Use the actual client ID
-          totalAmt: workDetails.totalAmt,
+          client: workDetails?.client._id, // Use the actual client ID
+          totalAmt: workDetails?.totalAmt,
           works: [workDetails._id], // Use the actual work ID
         };
 

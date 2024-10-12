@@ -32,6 +32,13 @@ function Header() {
             <p className>{"ZCP"}</p>
           </div>
           <div className="home-setting">
+            <a href="/notifications">
+              <img
+                style={{ height: "30px", marginRight: "20px" }}
+                src="/assets/svg/notification-icon.svg"
+                alt="notification-icon"
+              />
+            </a>
             <a
               onClick={(e) => {
                 e.preventDefault();

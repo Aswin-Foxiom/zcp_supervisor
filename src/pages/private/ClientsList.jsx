@@ -193,12 +193,12 @@ function ClientsList() {
   let navigate = useNavigate();
 
   // Function to fetch clients
-  const fetchClients = async (page, limit, query) => {
+  const fetchClients = async (query) => {
     const response = await apiCall(
       "get",
       `/clients`,
       {},
-      { page, limit, query }
+      { query, isActive: true }
     );
     if (response?.status) {
       return response?.data?.docs;
@@ -216,10 +216,10 @@ function ClientsList() {
     error: clientsErrorMsg,
     refetch: refetchClients,
   } = useFetchData(
-    ["clients", debouncedQuery, page], // Unique query key based on page and search query
-    page, // Page number
+    ["clients", debouncedQuery], // Unique query key based on page and search query
+    null, // Page number
     limit, // Limit for pagination
-    () => fetchClients(page, limit, debouncedQuery) // Fetch function with search query
+    () => fetchClients(debouncedQuery) // Fetch function with search query
   );
 
   // Handle search input changes
@@ -247,7 +247,7 @@ function ClientsList() {
   }
 
   return (
-    <div style={{ height: "auto", paddingBottom: "50px" }}>
+    <div style={{ height: "auto", minHeight: "100px", paddingBottom: "50px" }}>
       <section id="invite-friend-main" className="background1">
         <Background />
         <div className="container position-relative">
@@ -334,7 +334,9 @@ function ClientsList() {
                 </div>
               ))
             ) : (
-              <div>No Clients Found</div>
+              <div className="block-footer" style={{ marginTop: "150px" }}>
+                <p style={{ color: "red" }}>No Clients Found</p>
+              </div>
             )}
           </div>
         </div>
