@@ -247,8 +247,13 @@ function ClientsList() {
   }
 
   return (
-    <div style={{ height: "auto", minHeight: "100px", paddingBottom: "50px" }}>
-      <section id="invite-friend-main" className="background1">
+    <div>
+      {/* <div style={{ height: "auto", minHeight: "100px", paddingBottom: "50px" }}> */}
+      <section
+        id="invite-friend-main"
+        className="background1"
+        style={{ minHeight: "100vh" }}
+      >
         <Background />
         <div className="container position-relative">
           <div className="main-content-wrap pt-24">

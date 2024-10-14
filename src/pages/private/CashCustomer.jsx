@@ -51,7 +51,11 @@ function CashCustomer() {
   };
   return (
     <div style={{ height: "150vh" }}>
-      <section id="add-new-card" className="background1">
+      <section
+        id="add-new-card"
+        className="background1"
+        style={{ minHeight: "100vh" }}
+      >
         <div className="onboarding-bg-img1" />
         <Background />
 

@@ -34,7 +34,7 @@ function Dashboard() {
     <section
       id="homescreen-main"
       className="background1"
-      style={{ height: "100vh" }}
+      style={{ minHeight: "100vh" }}
     >
       <Background />
       {loading ? (

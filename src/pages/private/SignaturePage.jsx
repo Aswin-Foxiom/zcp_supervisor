@@ -111,6 +111,7 @@ function SignaturePage() {
   const CompleteWork = async () => {
     const body = {
       status: "completed",
+      client: workDetails?.client?._id,
     };
     setloading(true);
     const response = await apiCall("put", `/works/${id}`, body);
