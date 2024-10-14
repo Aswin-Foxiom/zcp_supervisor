@@ -252,7 +252,7 @@ function ClientsList() {
       <section
         id="invite-friend-main"
         className="background1"
-        style={{ minHeight: "100vh" }}
+        style={{ minHeight: "100vh", paddingBottom: "80px" }}
       >
         <Background />
         <div className="container position-relative">
