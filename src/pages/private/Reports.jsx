@@ -182,6 +182,7 @@ import { saveAs } from "file-saver";
 import TransactionPage from "./TransactionPage";
 import { getClientTypeLabel } from "../../utils/HelperFun";
 import { showToast } from "../../utils/Toast";
+import { baseUrl } from "../../services/Urls";
 
 // Create styles for PDF document
 const styles = StyleSheet.create({
