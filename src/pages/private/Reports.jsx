@@ -1,171 +1,3 @@
-// import React, { useEffect } from "react";
-// import Background from "../../components/common/Background";
-// import { useParams } from "react-router-dom";
-// import apiCall from "../../services/APICall";
-
-// function Reports() {
-//   const { id } = useParams();
-
-//   useEffect(() => {
-//     getWorkDetails();
-//   }, []);
-
-//   const getWorkDetails = async () => {
-//     const response = await apiCall("get", `/works/${id}`);
-//     if (response?.status) {
-//       console.log("THE Work Details", response);
-//       // getClientDetails(response?.data?.client);
-//     }
-//   };
-
-//   // const getClientDetails = async (clientId) => {
-//   //   console.log("client ID", clientId);
-//   //   const respone
-//   // };
-//   return (
-//     <div style={{ height: "100vh" }}>
-//       <section id="account-main" className="background1">
-//         <Background />
-//         <div className="container position-relative">
-//           <div className="main-content-wrap">
-//             <div className="account-created-wrap mt-24">
-//               <div className="account-top-sec">
-//                 <div className="account-img">
-//                   <img
-//                     src="/assets/images/invite-friend/friend1.png"
-//                     alt="account-img"
-//                   />
-//                 </div>
-//                 <div className="account-name">
-//                   <h3>Manoj</h3>
-//                   <p>Kollam</p>
-//                 </div>
-//                 {/* <div className="account-edit">
-//                   <a href="#">
-//                     <img src="/assets/svg/edit-icon.svg" alt="edit-icon" />
-//                   </a>
-//                 </div> */}
-//               </div>
-//               <div className="account-bottom-sec mt-24">
-//                 <a href="#">
-//                   <div className="send-money-contact-tab ">
-//                     <div className="setting-icon red-bg-opacity">
-//                       <img
-//                         src="/assets/images/profile/account-icon1.svg"
-//                         alt="account-icon"
-//                       />
-//                     </div>
-//                     <div className="setting-title">
-//                       <h3>Generate & Share Invoice</h3>
-//                     </div>
-//                     <div className="contact-star">
-//                       <div className="star-favourite">
-//                         <img
-//                           src="/assets/svg/right-arrow.svg"
-//                           alt="edit-icon"
-//                         />
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </a>
-//                 <a href="#">
-//                   <div className="send-money-contact-tab mt-12">
-//                     <div className="setting-icon red-bg-opacity">
-//                       <img
-//                         src="/assets/images/profile/account-icon2.svg"
-//                         alt="account-icon"
-//                       />
-//                     </div>
-//                     <div className="setting-title">
-//                       <h3>Generate & Share Reports</h3>
-//                     </div>
-//                     <div className="contact-star">
-//                       <div className="star-favourite">
-//                         <img
-//                           src="/assets/svg/right-arrow.svg"
-//                           alt="edit-icon"
-//                         />
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </a>
-//                 {/* <a href="#">
-//                   <div className="send-money-contact-tab mt-12">
-//                     <div className="setting-icon red-bg-opacity">
-//                       <img
-//                         src="/assets/images/profile/account-icon3.svg"
-//                         alt="account-icon"
-//                       />
-//                     </div>
-//                     <div className="setting-title">
-//                       <h3>Payment Methods</h3>
-//                     </div>
-//                     <div className="contact-star">
-//                       <div className="star-favourite">
-//                         <img
-//                           src="/assets/svg/right-arrow.svg"
-//                           alt="edit-icon"
-//                         />
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </a>
-//                 <a href="#">
-//                   <div className="send-money-contact-tab mt-12">
-//                     <div className="setting-icon red-bg-opacity">
-//                       <img
-//                         src="/assets/images/profile/account-icon4.svg"
-//                         alt="account-icon"
-//                       />
-//                     </div>
-//                     <div className="setting-title">
-//                       <h3>Delivery Address</h3>
-//                     </div>
-//                     <div className="contact-star">
-//                       <div className="star-favourite">
-//                         <img
-//                           src="/assets/svg/right-arrow.svg"
-//                           alt="edit-icon"
-//                         />
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </a>
-//                 <a href="#">
-//                   <div className="send-money-contact-tab mt-12">
-//                     <div className="setting-icon red-bg-opacity">
-//                       <img
-//                         src="/assets/images/profile/account-icon5.svg"
-//                         alt="account-icon"
-//                       />
-//                     </div>
-//                     <div className="setting-title">
-//                       <h3>Promos &amp; Vouchers</h3>
-//                     </div>
-//                     <div className="contact-star">
-//                       <div className="star-favourite">
-//                         <img
-//                           src="/assets/svg/right-arrow.svg"
-//                           alt="edit-icon"
-//                         />
-//                       </div>
-//                     </div>
-//                   </div>
-//                 </a> */}
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-//       </section>
-//       <div className="sign-up-btn fixed">
-//         <a href="/clients">Start New Work</a>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Reports;
-
 import React, { useEffect, useState } from "react";
 import Background from "../../components/common/Background";
 import { useNavigate, useParams } from "react-router-dom";
@@ -262,7 +94,7 @@ function Reports() {
   const downloadInvoice = async () => {
     if (workDetails?.invoice) {
       showToast("Invoice already Generaed", false);
-      return;
+      return navigate("/invoice", { state: { workDetails } });
     } else {
       if (workDetails) {
         // Prepare API request body
@@ -279,16 +111,22 @@ function Reports() {
 
         if (invoiceResponse?.status) {
           // If invoice creation is successful, generate and download the PDF
-          const blob = await pdf(
-            <InvoicePDF workDetails={workDetails} />
-          ).toBlob();
-          saveAs(blob, `Invoice_${workDetails?._id}.pdf`);
-          getWorkDetails();
+          // const blob = await pdf(
+          //   <InvoicePDF workDetails={workDetails} />
+          // ).toBlob();
+          // saveAs(blob, `Invoice_${workDetails?._id}.pdf`);
+          await getWorkDetails();
+          return navigate("/invoice", { state: { workDetails } });
         } else {
           console.error("Error creating invoice");
         }
       }
     }
+  };
+
+  const ReportGenerateClicked = (e) => {
+    e.preventDefault();
+    navigate("/report", { state: { workDetails } });
   };
 
   return (
@@ -345,7 +183,7 @@ function Reports() {
                           />
                         </div>
                         <div className="setting-title">
-                          <h3>Generate & Share Invoice</h3>
+                          <h3>Generate & Download Invoice</h3>
                         </div>
                         <div className="contact-star">
                           <div className="star-favourite">
@@ -357,27 +195,27 @@ function Reports() {
                         </div>
                       </div>
                     </a>
-                    {/* <a href="#">
-                    <div className="send-money-contact-tab mt-12">
-                      <div className="setting-icon red-bg-opacity">
-                        <img
-                          src="/assets/images/profile/account-icon2.svg"
-                          alt="account-icon"
-                        />
-                      </div>
-                      <div className="setting-title">
-                        <h3>Generate & Share Reports</h3>
-                      </div>
-                      <div className="contact-star">
-                        <div className="star-favourite">
+                    <a href="#" onClick={(e) => ReportGenerateClicked(e)}>
+                      <div className="send-money-contact-tab mt-12">
+                        <div className="setting-icon red-bg-opacity">
                           <img
-                            src="/assets/svg/right-arrow.svg"
-                            alt="edit-icon"
+                            src="/assets/images/profile/account-icon2.svg"
+                            alt="account-icon"
                           />
                         </div>
+                        <div className="setting-title">
+                          <h3>Generate & Download Reports</h3>
+                        </div>
+                        <div className="contact-star">
+                          <div className="star-favourite">
+                            <img
+                              src="/assets/svg/right-arrow.svg"
+                              alt="edit-icon"
+                            />
+                          </div>
+                        </div>
                       </div>
-                    </div>
-                  </a> */}
+                    </a>
                   </div>
                 )
               ) : (

@@ -1,0 +1,118 @@
+.invoice {
+    width: 210mm;
+    height: 297mm;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.logo-box {
+    background-color: #ff0000;
+    color: white;
+    padding: 5px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.logo-text {
+    font-size: 24px;
+    font-weight: bold;
+    margin-left: 10px;
+
+}
+
+.logo-text span {
+    color: #ff0000;
+}
+
+.invoice-title {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.company-info,
+.invoice-details,
+.bill-to {
+    margin-bottom: 20px;
+}
+
+.invoice-details {
+    text-align: start;
+    font-size: 0.9rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #484848 !important;
+}
+
+th,
+td {
+    border: 1px solid #b6b6b6;
+    text-align: center;
+
+}
+
+th {
+    background-color: #fff;
+    text-align: center;
+    padding: 1rem;
+}
+
+.amount-column {
+    text-align: center;
+}
+
+.total-row {
+    font-weight: 600 !important;
+    color: #737373;
+}
+
+.total-row td:first-child {
+    text-align: right;
+}
+
+.stamp {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.payment-terms {
+    margin-top: 20px;
+    font-size: 0.7rem;
+}
+
+.thank-you {
+    color: #ff0000;
+    font-size: 24px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.company-name,
+.website,
+.bill-to-header {
+    font-weight: bold;
+    color: #ff0000;
+}
+
+
+.grey-bg {
+    background-color: #f2f2f2;
+}

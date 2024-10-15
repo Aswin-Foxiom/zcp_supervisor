@@ -26,6 +26,7 @@ import PrivateRoute from "./utils/PrivateRoute";
 import CashCustomer from "./pages/private/CashCustomer";
 import Notification from "./pages/private/Notification";
 import ServiceReportForm from "./components/reports/ServiceReport";
+import Invoice from "./components/invoice/Invoice";
 
 function App() {
   return (
@@ -51,7 +52,8 @@ function App() {
           <Route path={NotificationUrl} element={<Notification />} />
         </Route>
         <Route path="*" element={<NotFound />} />
-        {/* <Route path="/report" element={<ServiceReportForm />} /> */}
+        <Route path="/report" element={<ServiceReportForm />} />
+        <Route path="/invoice" element={<Invoice />} />
       </Routes>
     </div>
   );
