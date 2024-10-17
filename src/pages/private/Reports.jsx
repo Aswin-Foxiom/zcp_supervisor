@@ -88,6 +88,7 @@ function Reports() {
     const response = await apiCall("get", `/works/${id}`);
     if (response?.status) {
       setWorkDetails(response?.data);
+      console.log("THE WORK DETAISLS", response?.data);
     }
   };
 
@@ -168,7 +169,7 @@ function Reports() {
                   </div>
                 ) : (
                   <div className="account-bottom-sec mt-24">
-                    <a
+                    {/* <a
                       href="#"
                       onClick={(e) => {
                         e.preventDefault();
@@ -194,7 +195,7 @@ function Reports() {
                           </div>
                         </div>
                       </div>
-                    </a>
+                    </a> */}
                     <a href="#" onClick={(e) => ReportGenerateClicked(e)}>
                       <div className="send-money-contact-tab mt-12">
                         <div className="setting-icon red-bg-opacity">
