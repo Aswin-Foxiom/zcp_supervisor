@@ -162,72 +162,33 @@ function Reports() {
                   <p>{getClientTypeLabel(workDetails?.client?.type)}</p>
                 </div>
               </div>
-              {workDetails?.totalAmt ? (
-                generateInvoiceLoading ? (
-                  <div className="block-footer" style={{ marginTop: "50px" }}>
-                    <p style={{ color: "red" }}>Generating Your Invoice.</p>
-                  </div>
-                ) : (
-                  <div className="account-bottom-sec mt-24">
-                    {/* <a
-                      href="#"
-                      onClick={(e) => {
-                        e.preventDefault();
-                        downloadInvoice();
-                      }}
-                    >
-                      <div className="send-money-contact-tab">
-                        <div className="setting-icon red-bg-opacity">
-                          <img
-                            src="/assets/images/profile/account-icon1.svg"
-                            alt="account-icon"
-                          />
-                        </div>
-                        <div className="setting-title">
-                          <h3>Generate & Download Invoice</h3>
-                        </div>
-                        <div className="contact-star">
-                          <div className="star-favourite">
-                            <img
-                              src="/assets/svg/right-arrow.svg"
-                              alt="edit-icon"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </a> */}
-                    <a href="#" onClick={(e) => ReportGenerateClicked(e)}>
-                      <div className="send-money-contact-tab mt-12">
-                        <div className="setting-icon red-bg-opacity">
-                          <img
-                            src="/assets/images/profile/account-icon2.svg"
-                            alt="account-icon"
-                          />
-                        </div>
-                        <div className="setting-title">
-                          <h3>Generate & Download Reports</h3>
-                        </div>
-                        <div className="contact-star">
-                          <div className="star-favourite">
-                            <img
-                              src="/assets/svg/right-arrow.svg"
-                              alt="edit-icon"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </a>
-                  </div>
-                )
-              ) : (
+              {generateInvoiceLoading ? (
                 <div className="block-footer" style={{ marginTop: "50px" }}>
-                  <p style={{ color: "red" }}>
-                    You cannot generate invoices or share reports because the
-                    total amount has not been added to the work.
-                  </p>
-                  <p style={{ color: "red" }}>
-                    Please contact the admin to update the total amount of work.
-                  </p>
+                  <p style={{ color: "red" }}>Generating Your Invoice.</p>
+                </div>
+              ) : (
+                <div className="account-bottom-sec mt-24">
+                  <a href="#" onClick={(e) => ReportGenerateClicked(e)}>
+                    <div className="send-money-contact-tab mt-12">
+                      <div className="setting-icon red-bg-opacity">
+                        <img
+                          src="/assets/images/profile/account-icon2.svg"
+                          alt="account-icon"
+                        />
+                      </div>
+                      <div className="setting-title">
+                        <h3>Generate & Download Reports</h3>
+                      </div>
+                      <div className="contact-star">
+                        <div className="star-favourite">
+                          <img
+                            src="/assets/svg/right-arrow.svg"
+                            alt="edit-icon"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </a>
                 </div>
               )}
             </div>
