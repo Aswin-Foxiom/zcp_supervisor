@@ -19,7 +19,11 @@ function Notification() {
     }
   };
   return (
-    <section id="invite-friend-main" className="background1">
+    <section
+      id="invite-friend-main"
+      className="background1"
+      style={{ minHeight: "100vh" }}
+    >
       <Background />
 
       {loading ? (

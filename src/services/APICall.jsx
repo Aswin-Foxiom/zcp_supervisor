@@ -38,6 +38,15 @@ const apiCall = async (
     // );
     // throw error; // Rethrow the error so it can be caught by the calling function
     showToast(error?.response?.data?.message ?? "Internal server error", false);
+    if (
+      error?.response.status &&
+      error?.response.status === 401 &&
+      localStorage.getItem("token")
+    ) {
+      localStorage.clear();
+      window.location.href = "/login";
+      return;
+    }
     return {
       status: false,
       data: null,

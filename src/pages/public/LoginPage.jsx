@@ -17,8 +17,9 @@ function LoginPage() {
   useEffect(() => {
     const token = localStorage.getItem("token");
     if (token) {
-      seturlPath("/");
-      return navigate("/");
+      // seturlPath("/");
+      // return navigate("/");
+      window.location.href = "/";
     }
   }, []);
 
@@ -41,7 +42,7 @@ function LoginPage() {
       localStorage.setItem("token", data?.token);
       showToast("Succesfully logged in", true);
       seturlPath("/");
-      return navigate("/");
+      window.location.href = "/";
     }
   };
 
