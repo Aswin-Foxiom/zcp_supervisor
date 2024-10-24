@@ -427,6 +427,7 @@ function SignaturePage() {
     const body = {
       status: "completed",
       client: workDetails?.client?._id,
+      completedDate: new Date(),
     };
     setloading(true);
     const response = await apiCall("put", `/works/${id}`, body);
