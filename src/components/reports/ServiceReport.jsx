@@ -652,18 +652,46 @@ export default function ServiceReportForm({ data }) {
           <tbody>
             <tr>
               <td>Quantity (Made up)</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input style={{ width: "40px", border: "none" }} />
+              </td>
+              <td>
+                <input
+                  style={{
+                    width: "100px",
+                    border: "none",
+                  }}
+                />
+              </td>
             </tr>
             <tr>
-              <td colSpan={10}>Others (If any)</td>
+              <td colSpan={10}>
+                Others (If any)
+                <input
+                  style={{ marginLeft: "10px", width: "84%", border: "none" }}
+                />
+              </td>
             </tr>
           </tbody>
         </table>
