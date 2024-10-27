@@ -154,7 +154,11 @@ function WorkPage() {
   }
   return (
     <div style={{ minHeight: "100vh", paddingBottom: "50px" }}>
-      <section id="empty-order-main" className="background1">
+      <section
+        id="empty-order-main"
+        className="background1"
+        style={{ minHeight: "100vh" }}
+      >
         <Background />
         <div className="container position-relative">
           <div className="main-content-wrap">

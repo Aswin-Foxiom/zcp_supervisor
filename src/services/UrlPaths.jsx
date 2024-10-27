@@ -4,6 +4,7 @@ export const ClientsListPathUrl = "clients";
 export const ClientDetailsPathUrl = "client-details/:id";
 export const WorkPagePathUrl = "work/:id";
 export const SignaturePathUrl = "signature/:id";
+export const MaterialsUsedPath = "materials-used/:id";
 export const WorkDataPathUrl = "work-datas/:id";
 export const ReportsPathUrl = "reports/:id";
 export const CashCustomerUrl = "cash-customer";

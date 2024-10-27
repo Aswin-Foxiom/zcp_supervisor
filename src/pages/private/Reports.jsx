@@ -132,7 +132,11 @@ function Reports() {
 
   return (
     <div style={{ height: "100vh" }}>
-      <section id="account-main" className="background1">
+      <section
+        id="account-main"
+        className="background1"
+        style={{ minHeight: "100vh" }}
+      >
         <Background />
         <div className="container position-relative">
           <div className="main-content-wrap">

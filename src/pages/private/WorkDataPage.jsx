@@ -27,7 +27,8 @@ function WorkDataPage() {
     const response = await apiCall("put", `/works/${id}`, workPendingDetails);
     if (response?.status) {
       showToast("services List Updated ", true);
-      return navigate(`/signature/${id}`);
+      return navigate(`/materials-used/${id}`);
+      // return navigate(`/signature/${id}`);
     }
   };
 
@@ -199,7 +200,7 @@ function WorkDataPage() {
                       </div>
                     </div>
 
-                    <div className="col-6 mt-2">
+                    <div className="col-6 mt-1">
                       <div className="language-sec-wrap">
                         <div className="language-name">
                           <div className="language-name-wrap">
@@ -220,6 +221,36 @@ function WorkDataPage() {
                                   setworkPendingDetails({
                                     ...workPendingDetails,
                                     typeOfService: "monthly",
+                                  })
+                                }
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="col-6 mt-1">
+                      <div className="language-sec-wrap">
+                        <div className="language-name">
+                          <div className="language-name-wrap">
+                            <div>
+                              <p>Not Paid</p>
+                            </div>
+                            <div className="form-check ps-0">
+                              <input
+                                className="form-check-input"
+                                type="radio"
+                                name="serviceType"
+                                value="notpaid"
+                                checked={
+                                  workPendingDetails?.typeOfService ===
+                                  "notpaid"
+                                }
+                                onChange={(e) =>
+                                  setworkPendingDetails({
+                                    ...workPendingDetails,
+                                    typeOfService: "notpaid",
                                   })
                                 }
                               />
