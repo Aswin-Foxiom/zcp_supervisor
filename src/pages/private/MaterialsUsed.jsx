@@ -174,7 +174,7 @@ function MaterialsUsed() {
                         <div className="language-name">
                           <div className="language-name-wrap">
                             <div>
-                              <p>No materialss Found </p>
+                              <p>No materials Found </p>
                             </div>
                           </div>
                         </div>

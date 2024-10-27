@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Background from "../../components/common/Background";
 import { useNavigate, useParams } from "react-router-dom";
 import apiCall from "../../services/APICall";
@@ -15,11 +15,24 @@ function WorkDataPage() {
   const [confirm, setconfirm] = useState(false);
   const [loading, setloading] = useState(false);
   let navigate = useNavigate();
+  const [workDetails, setworkDetails] = useState(null);
   const [workPendingDetails, setworkPendingDetails] = useState({
     totalAmt: null,
     note: null,
     typeOfService: "cash",
   });
+
+  useEffect(() => {
+    getWorkDetails();
+  }, []);
+
+  const getWorkDetails = async () => {
+    const response = await apiCall("get", `/works/${id}`);
+    if (response?.status) {
+      console.log("TH RES", response?.data);
+      setworkDetails(response?.data);
+    }
+  };
 
   const handleSubmit = async () => {
     console.log(workPendingDetails);
@@ -27,7 +40,11 @@ function WorkDataPage() {
     const response = await apiCall("put", `/works/${id}`, workPendingDetails);
     if (response?.status) {
       showToast("services List Updated ", true);
-      return navigate(`/materials-used/${id}`);
+      if (workDetails?.serviceType === "pest") {
+        return navigate(`/materials-used/${id}`);
+      } else {
+        return navigate(`/signature/${id}`);
+      }
       // return navigate(`/signature/${id}`);
     }
   };

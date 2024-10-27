@@ -4,11 +4,45 @@ import { useNavigate } from "react-router-dom";
 import { showToast } from "../../utils/Toast";
 import { ContextDatas } from "../../services/Context";
 import Background from "../../components/common/Background";
-
+import { Checkbox } from "primereact/checkbox";
+const datas = [
+  { name: "SC (ML)", isSelected: false },
+  { name: "EC (ML)", isSelected: false },
+  { name: "GEL (GRAM)", isSelected: false },
+  { name: "RAT GLUE TRAP (PCS)", isSelected: false },
+  { name: "FLY TRAP (PCS)", isSelected: false },
+  { name: "FLY RIBBON (PCS)", isSelected: false },
+  { name: "POWDER (GRAM)", isSelected: false },
+  { name: "PASTA (PCS)", isSelected: false },
+  { name: "WAX (PCS)", isSelected: false },
+];
 function CashCustomer() {
   const { Profile } = useContext(ContextDatas);
   const [loading, setloading] = useState(false);
+  const [materialsUsedList, setmaterialsUsedList] = useState(datas);
+
   let navigate = useNavigate();
+
+  const handleCheckboxChange = (index) => {
+    const updatedmaterialss = materialsUsedList.map((materials, key) => {
+      if (key === index) {
+        return { ...materials, isSelected: !materials.isSelected }; // Toggle isSelected
+      }
+      return materials;
+    });
+    setmaterialsUsedList(updatedmaterialss); // Update state with new list
+  };
+
+  // Handle input value change for selected materialss
+  const handleMaterialInputChange = (index, value) => {
+    const updatedmaterialss = materialsUsedList.map((materials, key) => {
+      if (key === index) {
+        return { ...materials, inputValue: value }; // Set input value for the selected checkbox
+      }
+      return materials;
+    });
+    setmaterialsUsedList(updatedmaterialss);
+  };
 
   // State for holding form data
   const [cashMemoDetails, setCashMemoDetails] = useState({
@@ -38,7 +72,15 @@ function CashCustomer() {
       showToast("Name and Contact are required fields", false);
       return;
     }
+    const selectedmaterialss = materialsUsedList
+      .filter((materials) => materials.isSelected)
+      .map((materials) => ({
+        material: materials.name, // Assign the material name to the type
+        count: materials.inputValue || "", // If input field was filled
+      }));
+
     cashMemoDetails.staff = Profile?._id;
+    cashMemoDetails.materialsUsed = selectedmaterialss;
     setloading(true);
     const response = await apiCall("post", `/cash-customers`, cashMemoDetails);
     setloading(false);
@@ -50,7 +92,7 @@ function CashCustomer() {
     }
   };
   return (
-    <div style={{ height: "150vh" }}>
+    <div style={{ height: "230vh" }}>
       <section
         id="add-new-card"
         className="background1"
@@ -392,6 +434,53 @@ function CashCustomer() {
                   </div>
                 </div>
               </div>
+
+              {materialsUsedList?.length ? (
+                <div className="language-selector pt-24">
+                  <label className="info-person" htmlFor="paymentMethod">
+                    Materials Used
+                  </label>
+                  {materialsUsedList?.map((value, key) => (
+                    <div className="language-sec-wrap pt-8" key={key}>
+                      <div className="language-name">
+                        <div className="language-name-wrap">
+                          <div>
+                            <p>{value?.name}</p>
+                          </div>
+                          <Checkbox
+                            checked={value?.isSelected ?? false}
+                            onChange={() => handleCheckboxChange(key)}
+                          />
+                        </div>
+                        {/* Show input field if checkbox is selected */}
+                        {value?.isSelected && (
+                          <input
+                            type="text"
+                            className="form-control mt-2"
+                            placeholder="Enter text"
+                            value={value?.inputValue || ""}
+                            onChange={(e) =>
+                              handleMaterialInputChange(key, e.target.value)
+                            }
+                          />
+                        )}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <div className="language-selector pt-24">
+                  <div className="language-sec-wrap pt-8">
+                    <div className="language-name">
+                      <div className="language-name-wrap">
+                        <div>
+                          <p>No materials Found </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
 
             {/* Submit Button */}
